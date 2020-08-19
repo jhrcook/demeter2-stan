@@ -752,7 +752,7 @@ model_shrna_mapping.head()
 
 
 ```python
-model_shrna_mapping.to_csv(model_data_dir / "shRNA_mapping.csv")
+model_shrna_mapping.to_csv(model_data_dir / "shRNA_mapping.csv", index=False)
 ```
 
 ### Log-fold-change data
@@ -860,90 +860,22 @@ lfc_data.shape
 
 
 ```python
-modeling_data = lfc_data \
-    .set_index('barcode_sequence') \
-    .join(model_shrna_mapping.set_index('barcode_sequence'), how='inner') \
-    .reset_index()
-
-modeling_data.head()
+modeling_data.to_csv(model_data_dir / 'subset_modeling_data.csv', index=False)
 ```
 
 
+    ---------------------------------------------------------------------------
 
+    NameError                                 Traceback (most recent call last)
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+    <ipython-input-20-02a7a0fd22a6> in <module>
+    ----> 1 modeling_data.to_csv(model_data_dir / 'subset_modeling_data.csv', index=False)
+    
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>barcode_sequence</th>
-      <th>cell_line</th>
-      <th>lfc</th>
-      <th>batch</th>
-      <th>gene_symbol</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>ACAGAAGAAATTCTGGCAGAT</td>
-      <td>ln215_central_nervous_system</td>
-      <td>1.966515</td>
-      <td>1</td>
-      <td>EIF6</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>ACAGAAGAAATTCTGGCAGAT</td>
-      <td>ln382_central_nervous_system</td>
-      <td>1.289606</td>
-      <td>1</td>
-      <td>EIF6</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>ACAGAAGAAATTCTGGCAGAT</td>
-      <td>efo21_ovary</td>
-      <td>0.625725</td>
-      <td>1</td>
-      <td>EIF6</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>ACAGAAGAAATTCTGGCAGAT</td>
-      <td>jhesoad1_oesophagus</td>
-      <td>1.392272</td>
-      <td>1</td>
-      <td>EIF6</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>ACAGAAGAAATTCTGGCAGAT</td>
-      <td>km12_large_intestine</td>
-      <td>0.820838</td>
-      <td>1</td>
-      <td>EIF6</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
+    NameError: name 'modeling_data' is not defined
 
 
 
 ```python
-modeling_data.to_csv(model_data_dir / 'subset_modeling_data.csv')
+
 ```
