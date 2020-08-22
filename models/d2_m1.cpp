@@ -1,8 +1,6 @@
 data {
     int<lower=0> N;       // number of data points
     vector[N] y;          // LFC data
-    
-    int<lower=0> N_pred;  // number of posterior predictions
 }
 
 parameters {
@@ -19,7 +17,7 @@ model {
 }
 
 generated quantities {
-    vector[N_pred] y_pred;
-    for (n in 1:N_pred)
+    vector[N] y_pred;
+    for (n in 1:N)
         y_pred[n] = normal_rng(alpha, sigma);
 }
