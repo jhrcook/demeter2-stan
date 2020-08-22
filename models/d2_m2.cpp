@@ -18,12 +18,14 @@ parameters {
 
 model {
     // Hyperpriors
-    mu_alpha ~ normal(0, 2);
-    sigma_alpha ~ cauchy(0, 1);
+    mu_alpha ~ normal(0, 10.0);
+    sigma_alpha ~ cauchy(0, 10.0);
     
     // Priors
-    alpha ~ normal(mu_alpha, sigma_alpha);
-    sigma ~ cauchy(0, 5);
+    for (s in 1:S)
+        alpha[s] ~ normal(mu_alpha, sigma_alpha);
+    
+    sigma ~ cauchy(0, 10.0);
     
     for (n in 1:N)
         y ~ normal(alpha[shrna[n]], sigma);
