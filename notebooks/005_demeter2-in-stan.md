@@ -630,7 +630,7 @@ print(f'{(end - start) / 60:.2f} minutes to compile model')
     INFO:pystan:COMPILING THE C++ CODE FOR MODEL anon_model_2a3da92f7ba3e62805394cf29daed746 NOW.
 
 
-    0.81 minutes to compile model
+    0.74 minutes to compile model
 
 
 
@@ -700,30 +700,30 @@ az.summary(az_d2_m1)
   <tbody>
     <tr>
       <th>alpha</th>
-      <td>-1.857</td>
+      <td>-1.855</td>
       <td>0.055</td>
-      <td>-1.954</td>
-      <td>-1.748</td>
+      <td>-1.957</td>
+      <td>-1.751</td>
       <td>0.001</td>
       <td>0.001</td>
-      <td>1552.0</td>
-      <td>1542.0</td>
-      <td>1559.0</td>
-      <td>1251.0</td>
+      <td>2097.0</td>
+      <td>2092.0</td>
+      <td>2084.0</td>
+      <td>1201.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>sigma</th>
-      <td>1.712</td>
+      <td>1.713</td>
       <td>0.039</td>
-      <td>1.644</td>
+      <td>1.641</td>
       <td>1.790</td>
       <td>0.001</td>
       <td>0.001</td>
-      <td>1593.0</td>
-      <td>1593.0</td>
-      <td>1599.0</td>
-      <td>1284.0</td>
+      <td>1533.0</td>
+      <td>1533.0</td>
+      <td>1540.0</td>
+      <td>1179.0</td>
       <td>1.0</td>
     </tr>
   </tbody>
@@ -804,7 +804,7 @@ print(f'{(end - start) / 60:.2f} minutes to compile model')
     INFO:pystan:COMPILING THE C++ CODE FOR MODEL anon_model_112516ecd402d13dafa0de6e631a9e45 NOW.
 
 
-    0.86 minutes to compile model
+    0.67 minutes to compile model
 
 
 
@@ -901,7 +901,7 @@ print(f'{(end - start) / 60:.2f} minutes to compile model')
     INFO:pystan:COMPILING THE C++ CODE FOR MODEL anon_model_27c69fe8813455b868fbd0406f6b51bd NOW.
 
 
-    0.74 minutes to compile model
+    0.72 minutes to compile model
 
 
 
@@ -971,72 +971,72 @@ az.summary(az_d2_m2).head()
   <tbody>
     <tr>
       <th>mu_alpha</th>
-      <td>-1.815</td>
-      <td>0.263</td>
-      <td>-2.280</td>
-      <td>-1.302</td>
-      <td>0.008</td>
-      <td>0.005</td>
-      <td>1199.0</td>
-      <td>1180.0</td>
-      <td>1204.0</td>
-      <td>578.0</td>
+      <td>-1.826</td>
+      <td>0.248</td>
+      <td>-2.291</td>
+      <td>-1.370</td>
+      <td>0.006</td>
+      <td>0.004</td>
+      <td>1945.0</td>
+      <td>1945.0</td>
+      <td>1929.0</td>
+      <td>800.0</td>
       <td>1.00</td>
     </tr>
     <tr>
       <th>sigma_alpha</th>
-      <td>1.254</td>
-      <td>0.189</td>
-      <td>0.943</td>
-      <td>1.612</td>
+      <td>1.249</td>
+      <td>0.194</td>
+      <td>0.927</td>
+      <td>1.631</td>
       <td>0.005</td>
       <td>0.004</td>
-      <td>1382.0</td>
-      <td>1264.0</td>
-      <td>1544.0</td>
-      <td>816.0</td>
-      <td>1.00</td>
-    </tr>
-    <tr>
-      <th>alpha[0]</th>
-      <td>0.698</td>
-      <td>0.200</td>
-      <td>0.297</td>
-      <td>1.058</td>
-      <td>0.005</td>
-      <td>0.004</td>
-      <td>1877.0</td>
-      <td>1563.0</td>
-      <td>1886.0</td>
-      <td>703.0</td>
+      <td>1577.0</td>
+      <td>1394.0</td>
+      <td>1849.0</td>
+      <td>795.0</td>
       <td>1.01</td>
     </tr>
     <tr>
-      <th>alpha[1]</th>
-      <td>-0.793</td>
-      <td>0.212</td>
-      <td>-1.126</td>
-      <td>-0.364</td>
-      <td>0.005</td>
+      <th>alpha[0]</th>
+      <td>0.703</td>
+      <td>0.209</td>
+      <td>0.295</td>
+      <td>1.072</td>
+      <td>0.004</td>
       <td>0.003</td>
-      <td>1896.0</td>
-      <td>1868.0</td>
-      <td>1897.0</td>
-      <td>848.0</td>
+      <td>2354.0</td>
+      <td>2056.0</td>
+      <td>2387.0</td>
+      <td>738.0</td>
       <td>1.00</td>
     </tr>
     <tr>
+      <th>alpha[1]</th>
+      <td>-0.800</td>
+      <td>0.220</td>
+      <td>-1.259</td>
+      <td>-0.430</td>
+      <td>0.004</td>
+      <td>0.003</td>
+      <td>2638.0</td>
+      <td>2025.0</td>
+      <td>2585.0</td>
+      <td>666.0</td>
+      <td>1.01</td>
+    </tr>
+    <tr>
       <th>alpha[2]</th>
-      <td>-2.265</td>
-      <td>0.203</td>
-      <td>-2.651</td>
-      <td>-1.907</td>
+      <td>-2.268</td>
+      <td>0.201</td>
+      <td>-2.637</td>
+      <td>-1.899</td>
       <td>0.005</td>
       <td>0.003</td>
-      <td>2034.0</td>
-      <td>1875.0</td>
-      <td>2044.0</td>
-      <td>648.0</td>
+      <td>1741.0</td>
+      <td>1688.0</td>
+      <td>1718.0</td>
+      <td>862.0</td>
       <td>1.00</td>
     </tr>
   </tbody>
@@ -1130,120 +1130,120 @@ d2_m2_fit.to_dataframe().head()
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>-2.457118</td>
-      <td>1.326445</td>
-      <td>0.892962</td>
-      <td>-0.746398</td>
-      <td>-2.178321</td>
-      <td>-1.535540</td>
-      <td>-2.077625</td>
+      <td>-1.717343</td>
+      <td>1.153475</td>
+      <td>0.768823</td>
+      <td>-0.517442</td>
+      <td>-1.839851</td>
+      <td>-1.309714</td>
+      <td>-2.768498</td>
       <td>...</td>
-      <td>-2.956824</td>
-      <td>-3.065314</td>
-      <td>-5.018948</td>
-      <td>-728.683719</td>
-      <td>0.771255</td>
-      <td>0.534713</td>
+      <td>-3.806916</td>
+      <td>-5.609710</td>
+      <td>-3.315077</td>
+      <td>-723.551342</td>
+      <td>0.808957</td>
+      <td>0.554071</td>
       <td>3</td>
       <td>7</td>
       <td>0</td>
-      <td>745.100115</td>
+      <td>739.722806</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0</td>
       <td>1</td>
       <td>0</td>
-      <td>-1.341726</td>
-      <td>1.083854</td>
-      <td>0.416304</td>
-      <td>-0.888440</td>
-      <td>-2.373778</td>
-      <td>-1.696952</td>
-      <td>-2.632622</td>
+      <td>-1.667439</td>
+      <td>1.467565</td>
+      <td>0.805954</td>
+      <td>-1.191569</td>
+      <td>-2.040256</td>
+      <td>-1.101814</td>
+      <td>-2.732943</td>
       <td>...</td>
-      <td>-4.492233</td>
-      <td>-6.700063</td>
-      <td>-5.749304</td>
-      <td>-729.176425</td>
-      <td>0.983083</td>
-      <td>0.534713</td>
+      <td>-4.549657</td>
+      <td>-4.526206</td>
+      <td>-3.209196</td>
+      <td>-727.934890</td>
+      <td>0.815801</td>
+      <td>0.554071</td>
       <td>3</td>
       <td>7</td>
       <td>0</td>
-      <td>741.113816</td>
+      <td>742.966630</td>
     </tr>
     <tr>
       <th>2</th>
       <td>0</td>
       <td>2</td>
       <td>0</td>
-      <td>-1.452934</td>
-      <td>1.570810</td>
-      <td>0.348248</td>
-      <td>-0.777222</td>
-      <td>-2.328061</td>
-      <td>-1.564425</td>
-      <td>-2.671122</td>
+      <td>-1.649163</td>
+      <td>1.431593</td>
+      <td>0.872164</td>
+      <td>-1.353188</td>
+      <td>-1.990979</td>
+      <td>-1.180292</td>
+      <td>-2.622750</td>
       <td>...</td>
-      <td>-4.344147</td>
-      <td>-5.856167</td>
-      <td>-6.215676</td>
-      <td>-731.555727</td>
-      <td>0.956461</td>
-      <td>0.534713</td>
+      <td>-4.853599</td>
+      <td>-3.584805</td>
+      <td>-6.296632</td>
+      <td>-730.323014</td>
+      <td>0.980871</td>
+      <td>0.554071</td>
       <td>3</td>
       <td>7</td>
       <td>0</td>
-      <td>750.006068</td>
+      <td>742.993687</td>
     </tr>
     <tr>
       <th>3</th>
       <td>0</td>
       <td>3</td>
       <td>0</td>
-      <td>-1.955864</td>
-      <td>0.975822</td>
-      <td>0.712350</td>
-      <td>-0.973998</td>
-      <td>-2.354045</td>
-      <td>-1.662263</td>
-      <td>-2.269254</td>
+      <td>-2.053052</td>
+      <td>1.165102</td>
+      <td>0.577352</td>
+      <td>-0.302050</td>
+      <td>-2.542299</td>
+      <td>-1.870215</td>
+      <td>-2.097786</td>
       <td>...</td>
-      <td>-4.604906</td>
-      <td>-5.421145</td>
-      <td>-4.265527</td>
-      <td>-732.990468</td>
-      <td>0.948801</td>
-      <td>0.534713</td>
+      <td>-4.024895</td>
+      <td>-3.423712</td>
+      <td>-3.636841</td>
+      <td>-730.812147</td>
+      <td>0.960364</td>
+      <td>0.554071</td>
       <td>3</td>
       <td>7</td>
       <td>0</td>
-      <td>749.221425</td>
+      <td>750.384967</td>
     </tr>
     <tr>
       <th>4</th>
       <td>0</td>
       <td>4</td>
       <td>0</td>
-      <td>-1.799420</td>
-      <td>1.422785</td>
-      <td>0.427787</td>
-      <td>-0.921388</td>
-      <td>-2.057306</td>
-      <td>-1.613114</td>
-      <td>-2.417118</td>
+      <td>-1.603363</td>
+      <td>1.230839</td>
+      <td>1.026905</td>
+      <td>-1.301742</td>
+      <td>-1.983990</td>
+      <td>-1.168913</td>
+      <td>-2.630462</td>
       <td>...</td>
-      <td>-2.374970</td>
-      <td>-4.401133</td>
-      <td>-3.869677</td>
-      <td>-722.190455</td>
+      <td>-3.843858</td>
+      <td>-4.776930</td>
+      <td>-2.566063</td>
+      <td>-727.492163</td>
       <td>1.000000</td>
-      <td>0.534713</td>
+      <td>0.554071</td>
       <td>3</td>
       <td>7</td>
       <td>0</td>
-      <td>742.034621</td>
+      <td>744.349184</td>
     </tr>
   </tbody>
 </table>
@@ -1289,7 +1289,7 @@ end = timer()
 print(f'{(end - start) / 60:.2f} minutes to compile model')
 ```
 
-    INFO:pystan:COMPILING THE C++ CODE FOR MODEL anon_model_fdb12fa958279899a501dc9f27a621f0 NOW.
+    INFO:pystan:COMPILING THE C++ CODE FOR MODEL anon_model_85af818ae9105b1cf51943262fb26a36 NOW.
 
 
     0.75 minutes to compile model
@@ -1304,7 +1304,7 @@ d2_m3_fit = d2_m3.sampling(data=d2_m3_data,
                            control=d2_m3_control)
 ```
 
-    WARNING:pystan:16 of 8000 iterations ended with a divergence (0.2 %).
+    WARNING:pystan:6 of 8000 iterations ended with a divergence (0.075 %).
     WARNING:pystan:Try running with adapt_delta larger than 0.999 to remove the divergences.
 
 
@@ -1313,7 +1313,7 @@ d2_m3_fit = d2_m3.sampling(data=d2_m3_data,
 pystan.check_hmc_diagnostics(d2_m3_fit)
 ```
 
-    WARNING:pystan:16 of 8000 iterations ended with a divergence (0.2 %).
+    WARNING:pystan:6 of 8000 iterations ended with a divergence (0.075 %).
     WARNING:pystan:Try running with adapt_delta larger than 0.999 to remove the divergences.
 
 
@@ -1374,72 +1374,72 @@ az.summary(az_d2_m3).head()
   <tbody>
     <tr>
       <th>mu_alpha</th>
-      <td>-0.838</td>
-      <td>1.406</td>
-      <td>-3.269</td>
-      <td>1.990</td>
-      <td>0.084</td>
-      <td>0.059</td>
-      <td>280.0</td>
-      <td>280.0</td>
-      <td>279.0</td>
-      <td>333.0</td>
+      <td>-0.940</td>
+      <td>1.322</td>
+      <td>-3.404</td>
+      <td>1.478</td>
+      <td>0.093</td>
+      <td>0.066</td>
+      <td>201.0</td>
+      <td>201.0</td>
+      <td>199.0</td>
+      <td>345.0</td>
       <td>1.02</td>
     </tr>
     <tr>
       <th>sigma_alpha</th>
-      <td>1.204</td>
-      <td>0.198</td>
-      <td>0.871</td>
-      <td>1.584</td>
+      <td>1.198</td>
+      <td>0.186</td>
+      <td>0.886</td>
+      <td>1.558</td>
+      <td>0.006</td>
       <td>0.004</td>
-      <td>0.003</td>
-      <td>2011.0</td>
-      <td>1969.0</td>
-      <td>2109.0</td>
-      <td>2515.0</td>
+      <td>1098.0</td>
+      <td>1098.0</td>
+      <td>1002.0</td>
+      <td>1730.0</td>
       <td>1.00</td>
     </tr>
     <tr>
       <th>mu_g</th>
-      <td>-0.923</td>
-      <td>1.417</td>
-      <td>-3.789</td>
-      <td>1.595</td>
-      <td>0.080</td>
-      <td>0.056</td>
-      <td>315.0</td>
-      <td>315.0</td>
-      <td>316.0</td>
-      <td>390.0</td>
+      <td>-0.838</td>
+      <td>1.315</td>
+      <td>-3.236</td>
+      <td>1.647</td>
+      <td>0.088</td>
+      <td>0.063</td>
+      <td>221.0</td>
+      <td>221.0</td>
+      <td>220.0</td>
+      <td>383.0</td>
       <td>1.02</td>
     </tr>
     <tr>
       <th>sigma_g</th>
-      <td>0.857</td>
-      <td>0.924</td>
-      <td>0.011</td>
-      <td>2.238</td>
-      <td>0.029</td>
-      <td>0.020</td>
-      <td>1036.0</td>
-      <td>1036.0</td>
-      <td>626.0</td>
-      <td>637.0</td>
-      <td>1.01</td>
+      <td>0.853</td>
+      <td>1.050</td>
+      <td>0.014</td>
+      <td>2.259</td>
+      <td>0.038</td>
+      <td>0.027</td>
+      <td>773.0</td>
+      <td>773.0</td>
+      <td>342.0</td>
+      <td>332.0</td>
+      <td>1.00</td>
     </tr>
     <tr>
       <th>alpha[0]</th>
-      <td>1.768</td>
-      <td>1.457</td>
-      <td>-0.719</td>
-      <td>4.763</td>
-      <td>0.084</td>
-      <td>0.060</td>
-      <td>297.0</td>
-      <td>297.0</td>
-      <td>297.0</td>
-      <td>373.0</td>
+      <td>1.649</td>
+      <td>1.368</td>
+      <td>-0.849</td>
+      <td>4.215</td>
+      <td>0.096</td>
+      <td>0.068</td>
+      <td>205.0</td>
+      <td>205.0</td>
+      <td>204.0</td>
+      <td>382.0</td>
       <td>1.02</td>
     </tr>
   </tbody>
@@ -1540,152 +1540,152 @@ fit3_alpha_summary.head(10)
   <tbody>
     <tr>
       <th>1</th>
-      <td>1.768</td>
-      <td>1.457</td>
-      <td>-0.719</td>
-      <td>4.763</td>
-      <td>0.084</td>
-      <td>0.060</td>
-      <td>297.0</td>
-      <td>297.0</td>
-      <td>297.0</td>
-      <td>373.0</td>
+      <td>1.649</td>
+      <td>1.368</td>
+      <td>-0.849</td>
+      <td>4.215</td>
+      <td>0.096</td>
+      <td>0.068</td>
+      <td>205.0</td>
+      <td>205.0</td>
+      <td>204.0</td>
+      <td>382.0</td>
       <td>1.02</td>
       <td>EIF6</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.272</td>
-      <td>1.461</td>
-      <td>-2.255</td>
-      <td>3.253</td>
-      <td>0.085</td>
-      <td>0.060</td>
-      <td>293.0</td>
-      <td>293.0</td>
-      <td>293.0</td>
-      <td>393.0</td>
+      <td>0.157</td>
+      <td>1.367</td>
+      <td>-2.392</td>
+      <td>2.688</td>
+      <td>0.095</td>
+      <td>0.067</td>
+      <td>206.0</td>
+      <td>206.0</td>
+      <td>205.0</td>
+      <td>369.0</td>
       <td>1.02</td>
       <td>EIF6</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-0.916</td>
-      <td>1.486</td>
-      <td>-3.585</td>
-      <td>1.920</td>
-      <td>0.089</td>
-      <td>0.063</td>
-      <td>278.0</td>
-      <td>278.0</td>
-      <td>277.0</td>
-      <td>386.0</td>
+      <td>-1.037</td>
+      <td>1.404</td>
+      <td>-3.631</td>
+      <td>1.576</td>
+      <td>0.093</td>
+      <td>0.066</td>
+      <td>230.0</td>
+      <td>227.0</td>
+      <td>229.0</td>
+      <td>362.0</td>
       <td>1.02</td>
       <td>COL8A1</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>-0.488</td>
-      <td>1.451</td>
-      <td>-3.092</td>
-      <td>2.300</td>
-      <td>0.086</td>
-      <td>0.061</td>
-      <td>282.0</td>
-      <td>282.0</td>
-      <td>282.0</td>
-      <td>346.0</td>
+      <td>-0.593</td>
+      <td>1.358</td>
+      <td>-3.099</td>
+      <td>1.927</td>
+      <td>0.095</td>
+      <td>0.067</td>
+      <td>205.0</td>
+      <td>205.0</td>
+      <td>204.0</td>
+      <td>358.0</td>
       <td>1.02</td>
       <td>KRAS</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>-1.336</td>
-      <td>1.454</td>
-      <td>-3.930</td>
-      <td>1.479</td>
-      <td>0.086</td>
-      <td>0.061</td>
-      <td>284.0</td>
-      <td>284.0</td>
-      <td>284.0</td>
-      <td>373.0</td>
+      <td>-1.437</td>
+      <td>1.359</td>
+      <td>-3.945</td>
+      <td>1.081</td>
+      <td>0.095</td>
+      <td>0.067</td>
+      <td>205.0</td>
+      <td>205.0</td>
+      <td>205.0</td>
+      <td>347.0</td>
       <td>1.02</td>
       <td>KRAS</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>0.619</td>
-      <td>1.458</td>
-      <td>-2.258</td>
-      <td>3.276</td>
-      <td>0.083</td>
-      <td>0.058</td>
-      <td>312.0</td>
-      <td>312.0</td>
-      <td>311.0</td>
-      <td>383.0</td>
-      <td>1.01</td>
+      <td>0.542</td>
+      <td>1.389</td>
+      <td>-1.987</td>
+      <td>3.220</td>
+      <td>0.097</td>
+      <td>0.069</td>
+      <td>204.0</td>
+      <td>204.0</td>
+      <td>203.0</td>
+      <td>331.0</td>
+      <td>1.02</td>
       <td>COG3</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>-0.617</td>
-      <td>1.459</td>
-      <td>-3.377</td>
-      <td>2.152</td>
-      <td>0.082</td>
-      <td>0.058</td>
-      <td>314.0</td>
-      <td>314.0</td>
-      <td>314.0</td>
-      <td>376.0</td>
-      <td>1.01</td>
+      <td>-0.695</td>
+      <td>1.391</td>
+      <td>-3.292</td>
+      <td>1.852</td>
+      <td>0.097</td>
+      <td>0.069</td>
+      <td>205.0</td>
+      <td>205.0</td>
+      <td>204.0</td>
+      <td>323.0</td>
+      <td>1.02</td>
       <td>COG3</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>-1.601</td>
-      <td>1.452</td>
-      <td>-4.194</td>
-      <td>1.201</td>
-      <td>0.086</td>
-      <td>0.061</td>
-      <td>284.0</td>
-      <td>284.0</td>
-      <td>284.0</td>
-      <td>361.0</td>
+      <td>-1.708</td>
+      <td>1.357</td>
+      <td>-4.227</td>
+      <td>0.846</td>
+      <td>0.095</td>
+      <td>0.068</td>
+      <td>202.0</td>
+      <td>202.0</td>
+      <td>201.0</td>
+      <td>343.0</td>
       <td>1.02</td>
       <td>KRAS</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>0.806</td>
-      <td>1.453</td>
-      <td>-1.714</td>
-      <td>3.661</td>
-      <td>0.086</td>
-      <td>0.061</td>
-      <td>284.0</td>
-      <td>284.0</td>
-      <td>284.0</td>
-      <td>360.0</td>
+      <td>0.701</td>
+      <td>1.358</td>
+      <td>-1.861</td>
+      <td>3.227</td>
+      <td>0.095</td>
+      <td>0.067</td>
+      <td>206.0</td>
+      <td>206.0</td>
+      <td>205.0</td>
+      <td>351.0</td>
       <td>1.02</td>
       <td>KRAS</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>-0.170</td>
-      <td>1.452</td>
-      <td>-2.825</td>
-      <td>2.575</td>
-      <td>0.086</td>
-      <td>0.061</td>
-      <td>283.0</td>
-      <td>283.0</td>
-      <td>283.0</td>
-      <td>366.0</td>
-      <td>1.02</td>
+      <td>-0.278</td>
+      <td>1.359</td>
+      <td>-2.908</td>
+      <td>2.143</td>
+      <td>0.095</td>
+      <td>0.067</td>
+      <td>204.0</td>
+      <td>204.0</td>
+      <td>203.0</td>
+      <td>351.0</td>
+      <td>1.03</td>
       <td>KRAS</td>
     </tr>
   </tbody>
@@ -1749,65 +1749,65 @@ fit3_gene_summary.head(10)
     <tr>
       <th>0</th>
       <td>1</td>
-      <td>-0.530</td>
-      <td>1.450</td>
-      <td>-3.195</td>
-      <td>2.340</td>
-      <td>0.082</td>
-      <td>0.058</td>
-      <td>310.0</td>
-      <td>310.0</td>
-      <td>309.0</td>
-      <td>392.0</td>
-      <td>1.01</td>
+      <td>-0.453</td>
+      <td>1.376</td>
+      <td>-3.146</td>
+      <td>1.990</td>
+      <td>0.097</td>
+      <td>0.069</td>
+      <td>201.0</td>
+      <td>201.0</td>
+      <td>200.0</td>
+      <td>315.0</td>
+      <td>1.02</td>
       <td>COG3</td>
     </tr>
     <tr>
       <th>1</th>
       <td>2</td>
-      <td>-1.351</td>
-      <td>1.474</td>
-      <td>-4.134</td>
-      <td>1.324</td>
-      <td>0.089</td>
-      <td>0.063</td>
-      <td>274.0</td>
-      <td>274.0</td>
-      <td>273.0</td>
-      <td>393.0</td>
+      <td>-1.236</td>
+      <td>1.399</td>
+      <td>-3.987</td>
+      <td>1.198</td>
+      <td>0.093</td>
+      <td>0.066</td>
+      <td>227.0</td>
+      <td>227.0</td>
+      <td>225.0</td>
+      <td>365.0</td>
       <td>1.02</td>
       <td>COL8A1</td>
     </tr>
     <tr>
       <th>2</th>
       <td>3</td>
-      <td>-1.076</td>
-      <td>1.449</td>
-      <td>-4.012</td>
-      <td>1.476</td>
-      <td>0.085</td>
-      <td>0.060</td>
-      <td>289.0</td>
-      <td>289.0</td>
-      <td>289.0</td>
-      <td>363.0</td>
+      <td>-0.963</td>
+      <td>1.355</td>
+      <td>-3.530</td>
+      <td>1.495</td>
+      <td>0.095</td>
+      <td>0.067</td>
+      <td>203.0</td>
+      <td>203.0</td>
+      <td>201.0</td>
+      <td>350.0</td>
       <td>1.02</td>
       <td>EIF6</td>
     </tr>
     <tr>
       <th>3</th>
       <td>4</td>
-      <td>-1.027</td>
-      <td>1.440</td>
-      <td>-3.837</td>
-      <td>1.511</td>
-      <td>0.086</td>
-      <td>0.061</td>
-      <td>278.0</td>
-      <td>278.0</td>
-      <td>278.0</td>
+      <td>-0.922</td>
+      <td>1.345</td>
+      <td>-3.294</td>
+      <td>1.665</td>
+      <td>0.095</td>
+      <td>0.067</td>
+      <td>200.0</td>
+      <td>200.0</td>
+      <td>199.0</td>
       <td>341.0</td>
-      <td>1.02</td>
+      <td>1.03</td>
       <td>KRAS</td>
     </tr>
   </tbody>
@@ -1844,6 +1844,9 @@ plt.show()
 
 ## Model 4. Parameters for difference between average gene effect and cell line-specific effect
 
+Note that the varying intercept for shRNA has been renamed from $\alpha$ to $c$.
+$\bar g_{l}$ is the average effect of knocking-down gene $l$ while $g_{jl}$ is the cell line $j$-specific effect of knocking-down $l$.
+
 $$
 D_{i|s} \sim N(\mu_{i|s}, \sigma) \\
 \mu = c_{i|s} + \bar g_{i|l} - g_{i|jl} \\
@@ -1855,6 +1858,230 @@ g_{jl} \sim N(0, \sigma_g) \\
 \sigma_g \sim \text{HalfCauchy}(0, 5) \\
 \sigma \sim \text{HalfCauchy}(0, 10)
 $$
+
+
+```python
+d2_m4_data = {
+    'N': int(modeling_data.shape[0]),
+    'S': np.max(modeling_data.barcode_sequence_idx),
+    'L': np.max(modeling_data.gene_symbol_idx),
+    'J': np.max(modeling_data.cell_line_idx),
+    
+    'shrna': modeling_data.barcode_sequence_idx,
+    'gene': modeling_data.gene_symbol_idx,
+    'cell_line': modeling_data.cell_line_idx,
+    
+    'y': modeling_data.lfc,
+}
+```
+
+**Compile model.**
+
+
+```python
+start = timer()
+d2_m4_file = models_dir / 'd2_m4.cpp'
+d2_m4 = pystan.StanModel(file=d2_m4_file.as_posix())
+end = timer()
+print(f'{(end - start) / 60:.2f} minutes to compile model')
+```
+
+    INFO:pystan:COMPILING THE C++ CODE FOR MODEL anon_model_fab05e14f81a486812ff3fbe526c78c0 NOW.
+
+
+    0.74 minutes to compile model
+
+
+
+```python
+d2_m4_control = {'adapt_delta': 0.999, 
+                 'max_treedepth': 20}
+d2_m4_fit = d2_m4.sampling(data=d2_m4_data, 
+                           iter=3000, warmup=1000, chains=4, 
+                           control=d2_m4_control)
+```
+
+    WARNING:pystan:Maximum (flat) parameter count (1000) exceeded: skipping diagnostic tests for n_eff and Rhat.
+    To run all diagnostics call pystan.check_hmc_diagnostics(fit)
+    WARNING:pystan:35 of 8000 iterations ended with a divergence (0.438 %).
+    WARNING:pystan:Try running with adapt_delta larger than 0.999 to remove the divergences.
+
+
+
+```python
+pystan.check_hmc_diagnostics(d2_m4_fit)
+```
+
+    WARNING:pystan:35 of 8000 iterations ended with a divergence (0.438 %).
+    WARNING:pystan:Try running with adapt_delta larger than 0.999 to remove the divergences.
+
+
+
+
+
+    {'n_eff': True,
+     'Rhat': True,
+     'divergence': False,
+     'treedepth': True,
+     'energy': True}
+
+
+
+
+```python
+az_d2_m4 = az.from_pystan(posterior=d2_m4_fit,
+                          posterior_predictive='y_pred',
+                          observed_data=['y'],
+                          posterior_model=d2_m4)
+az.summary(az_d2_m4).head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean</th>
+      <th>sd</th>
+      <th>hpd_3%</th>
+      <th>hpd_97%</th>
+      <th>mcse_mean</th>
+      <th>mcse_sd</th>
+      <th>ess_mean</th>
+      <th>ess_sd</th>
+      <th>ess_bulk</th>
+      <th>ess_tail</th>
+      <th>r_hat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>sigma_c</th>
+      <td>1.202</td>
+      <td>0.192</td>
+      <td>0.860</td>
+      <td>1.562</td>
+      <td>0.002</td>
+      <td>0.002</td>
+      <td>8617.0</td>
+      <td>7747.0</td>
+      <td>9899.0</td>
+      <td>5735.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>mu_gbar</th>
+      <td>-1.708</td>
+      <td>0.573</td>
+      <td>-2.777</td>
+      <td>-0.654</td>
+      <td>0.010</td>
+      <td>0.007</td>
+      <td>3012.0</td>
+      <td>3012.0</td>
+      <td>3135.0</td>
+      <td>3148.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>sigma_gbar</th>
+      <td>0.831</td>
+      <td>0.841</td>
+      <td>0.010</td>
+      <td>2.220</td>
+      <td>0.021</td>
+      <td>0.015</td>
+      <td>1610.0</td>
+      <td>1610.0</td>
+      <td>1187.0</td>
+      <td>1619.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>sigma_g</th>
+      <td>0.534</td>
+      <td>0.058</td>
+      <td>0.420</td>
+      <td>0.636</td>
+      <td>0.001</td>
+      <td>0.001</td>
+      <td>3501.0</td>
+      <td>3501.0</td>
+      <td>3470.0</td>
+      <td>4471.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>c[0]</th>
+      <td>2.612</td>
+      <td>0.463</td>
+      <td>1.736</td>
+      <td>3.486</td>
+      <td>0.010</td>
+      <td>0.007</td>
+      <td>2157.0</td>
+      <td>2157.0</td>
+      <td>2164.0</td>
+      <td>3143.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+az.plot_trace(az_d2_m4, var_names=['gbar'])
+plt.show()
+```
+
+
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_76_0.png)
+
+
+
+```python
+az.plot_ppc(az_d2_m4, data_pairs={'y':'y_pred'}, num_pp_samples=100)
+plt.show()
+```
+
+
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_77_0.png)
+
+
+
+```python
+az.plot_forest(az_d2_m4, var_names='g')
+plt.show()
+```
+
+
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_78_0.png)
+
+
+**To-Do:** 
+
+- show $g_{jl}$ for each gene
+- show distribution of intercepts for shRNA $c_s$
+- show distribution of values for cell lines
 
 
 ```python
