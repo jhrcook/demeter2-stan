@@ -11,6 +11,7 @@ from pathlib import Path
 import seaborn as sns
 from timeit import default_timer as timer
 import warnings
+import re
 
 plt.style.use('seaborn-whitegrid')
 plt.rcParams['figure.figsize'] = (10.0, 7.0)
@@ -1056,7 +1057,7 @@ plt.show()
 
 
 ```python
-az.plot_forest(az_d2_m2, combined=True, var_names=['alpha'])
+az.plot_forest(az_d2_m2, kind='ridgeplot', combined=True, var_names=['alpha'])
 plt.show()
 ```
 
@@ -1076,131 +1077,784 @@ plt.show()
 
 
 ```python
-d2_m2_fit
+d2_m2_fit.to_dataframe().head()
 ```
 
-    WARNING:pystan:Truncated summary with the 'fit.__repr__' method. For the full summary use 'print(fit)'
 
 
 
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chain</th>
+      <th>draw</th>
+      <th>warmup</th>
+      <th>mu_alpha</th>
+      <th>sigma_alpha</th>
+      <th>alpha[1]</th>
+      <th>alpha[2]</th>
+      <th>alpha[3]</th>
+      <th>alpha[4]</th>
+      <th>alpha[5]</th>
+      <th>...</th>
+      <th>y_pred[960]</th>
+      <th>y_pred[961]</th>
+      <th>y_pred[962]</th>
+      <th>lp__</th>
+      <th>accept_stat__</th>
+      <th>stepsize__</th>
+      <th>treedepth__</th>
+      <th>n_leapfrog__</th>
+      <th>divergent__</th>
+      <th>energy__</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-2.457118</td>
+      <td>1.326445</td>
+      <td>0.892962</td>
+      <td>-0.746398</td>
+      <td>-2.178321</td>
+      <td>-1.535540</td>
+      <td>-2.077625</td>
+      <td>...</td>
+      <td>-2.956824</td>
+      <td>-3.065314</td>
+      <td>-5.018948</td>
+      <td>-728.683719</td>
+      <td>0.771255</td>
+      <td>0.534713</td>
+      <td>3</td>
+      <td>7</td>
+      <td>0</td>
+      <td>745.100115</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>-1.341726</td>
+      <td>1.083854</td>
+      <td>0.416304</td>
+      <td>-0.888440</td>
+      <td>-2.373778</td>
+      <td>-1.696952</td>
+      <td>-2.632622</td>
+      <td>...</td>
+      <td>-4.492233</td>
+      <td>-6.700063</td>
+      <td>-5.749304</td>
+      <td>-729.176425</td>
+      <td>0.983083</td>
+      <td>0.534713</td>
+      <td>3</td>
+      <td>7</td>
+      <td>0</td>
+      <td>741.113816</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>-1.452934</td>
+      <td>1.570810</td>
+      <td>0.348248</td>
+      <td>-0.777222</td>
+      <td>-2.328061</td>
+      <td>-1.564425</td>
+      <td>-2.671122</td>
+      <td>...</td>
+      <td>-4.344147</td>
+      <td>-5.856167</td>
+      <td>-6.215676</td>
+      <td>-731.555727</td>
+      <td>0.956461</td>
+      <td>0.534713</td>
+      <td>3</td>
+      <td>7</td>
+      <td>0</td>
+      <td>750.006068</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>-1.955864</td>
+      <td>0.975822</td>
+      <td>0.712350</td>
+      <td>-0.973998</td>
+      <td>-2.354045</td>
+      <td>-1.662263</td>
+      <td>-2.269254</td>
+      <td>...</td>
+      <td>-4.604906</td>
+      <td>-5.421145</td>
+      <td>-4.265527</td>
+      <td>-732.990468</td>
+      <td>0.948801</td>
+      <td>0.534713</td>
+      <td>3</td>
+      <td>7</td>
+      <td>0</td>
+      <td>749.221425</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>-1.799420</td>
+      <td>1.422785</td>
+      <td>0.427787</td>
+      <td>-0.921388</td>
+      <td>-2.057306</td>
+      <td>-1.613114</td>
+      <td>-2.417118</td>
+      <td>...</td>
+      <td>-2.374970</td>
+      <td>-4.401133</td>
+      <td>-3.869677</td>
+      <td>-722.190455</td>
+      <td>1.000000</td>
+      <td>0.534713</td>
+      <td>3</td>
+      <td>7</td>
+      <td>0</td>
+      <td>742.034621</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 1001 columns</p>
+</div>
 
 
+
+## Model 3. Another varying intercept for target gene
+
+$$
+D_{i|s} \sim N(\mu_{i|s}, \sigma) \\
+\mu = \alpha_{i|s} + g_{i|l}\\
+\alpha_s \sim N(\mu_{\alpha}, \sigma_{\alpha}) \\
+g_l \sim N(\mu_g, \sigma_g) \\
+\mu_{\alpha} \sim N(0, 2) \quad \sigma_{\alpha} \sim \text{HalfCauchy}(0, 10) \\
+\mu_{g} \sim N(0, 2) \quad \sigma_{g} \sim \text{HalfCauchy}(0, 10) \\
+\sigma \sim \text{HalfCauchy}(0, 10)
+$$
+
+
+```python
+d2_m3_data = {
+    'N': int(modeling_data.shape[0]),
+    'S': np.max(modeling_data.barcode_sequence_idx),
+    'L': np.max(modeling_data.gene_symbol_idx),
     
-    Warning: Shown data is truncated to 100 parameters
-    For the full summary use 'print(fit)'
+    'shrna': modeling_data.barcode_sequence_idx,
+    'gene': modeling_data.gene_symbol_idx,
     
-    Inference for Stan model: anon_model_27c69fe8813455b868fbd0406f6b51bd.
-    2 chains, each with iter=1000; warmup=500; thin=1; 
-    post-warmup draws per chain=500, total post-warmup draws=1000.
-    
-                  mean se_mean     sd   2.5%    25%    50%    75%  97.5%  n_eff   Rhat
-    mu_alpha     -1.82  7.6e-3   0.26  -2.34  -1.98  -1.82  -1.65   -1.3   1186    1.0
-    sigma_alpha   1.25  5.1e-3   0.19   0.95   1.12   1.23   1.36   1.67   1363    1.0
-    alpha[1]       0.7  4.6e-3    0.2    0.3   0.57   0.69   0.83   1.11   1877    1.0
-    alpha[2]     -0.79  4.5e-3   0.21  -1.19  -0.94  -0.79  -0.65  -0.38   2198    1.0
-    alpha[3]     -2.26  4.6e-3    0.2  -2.65   -2.4  -2.26  -2.13  -1.87   1960    1.0
-    alpha[4]     -1.51  5.0e-3   0.21  -1.92  -1.66  -1.52  -1.38  -1.08   1692    1.0
-    alpha[5]     -2.37  4.8e-3   0.22   -2.8  -2.51  -2.37  -2.22  -1.96   2060    1.0
-    alpha[6]      0.07  4.5e-3   0.21  -0.34  -0.07   0.08   0.22   0.49   2253    1.0
-    alpha[7]     -1.16  5.8e-3   0.21  -1.59   -1.3  -1.15  -1.02  -0.74   1300    1.0
-    alpha[8]     -2.63  4.8e-3   0.21  -3.05  -2.76  -2.63  -2.49  -2.19   1965    1.0
-    alpha[9]     -0.21  4.8e-3   0.21  -0.61  -0.36  -0.21  -0.06    0.2   1932    1.0
-    alpha[10]     -1.2  4.3e-3   0.21  -1.61  -1.33  -1.19  -1.06  -0.77   2351    1.0
-    alpha[11]     0.16  5.1e-3   0.21  -0.2610.0e-3   0.17   0.31   0.59   1731    1.0
-    alpha[12]    -2.01  5.1e-3    0.2  -2.41  -2.15  -2.01  -1.87  -1.64   1564    1.0
-    alpha[13]    -2.67  4.5e-3   0.19  -3.07   -2.8  -2.67  -2.55   -2.3   1830    1.0
-    alpha[14]     -2.8  5.9e-3    0.2  -3.19  -2.94  -2.81  -2.67  -2.42   1166    1.0
-    alpha[15]    -1.13  4.4e-3   0.22  -1.54  -1.28  -1.13  -0.98   -0.7   2381    1.0
-    alpha[16]    -3.08  5.1e-3   0.21  -3.49  -3.22  -3.07  -2.93  -2.64   1792    1.0
-    alpha[17]    -2.25  4.2e-3    0.2  -2.66  -2.38  -2.25  -2.11  -1.86   2332    1.0
-    alpha[18]    -1.74  4.3e-3   0.21  -2.15   -1.9  -1.75  -1.59  -1.33   2438    1.0
-    alpha[19]    -1.85  4.4e-3    0.2  -2.23  -1.98  -1.84  -1.71  -1.45   2071    1.0
-    alpha[20]    -1.73  4.1e-3    0.2  -2.09  -1.87  -1.73  -1.59  -1.34   2269    1.0
-    alpha[21]    -3.02  4.0e-3    0.2   -3.4  -3.16  -3.03  -2.89  -2.64   2338    1.0
-    alpha[22]    -2.18  4.4e-3    0.2  -2.57  -2.31  -2.18  -2.04   -1.8   2013    1.0
-    alpha[23]    -3.19  5.3e-3    0.2  -3.58  -3.32  -3.18  -3.06  -2.79   1400    1.0
-    alpha[24]     -2.3  4.5e-3    0.2  -2.68  -2.43   -2.3  -2.17  -1.92   1899    1.0
-    alpha[25]     -2.9  4.7e-3    0.2  -3.27  -3.04   -2.9  -2.77  -2.49   1824    1.0
-    alpha[26]    -4.16  4.9e-3    0.2  -4.54  -4.29  -4.16  -4.03  -3.73   1702    1.0
-    sigma         1.26  6.3e-4   0.03   1.21   1.24   1.26   1.28   1.32   2170    1.0
-    y_pred[1]     0.74    0.04   1.28  -1.64  -0.14   0.66   1.65   3.23   1029    1.0
-    y_pred[2]     0.73    0.04   1.33  -1.83  -0.15   0.68   1.66   3.39    965    1.0
-    y_pred[3]     0.71    0.04   1.27  -1.68   -0.2   0.76   1.58   3.15    941    1.0
-    y_pred[4]     0.64    0.04   1.25  -1.93   -0.2   0.63   1.45   3.12    919    1.0
-    y_pred[5]     0.64    0.04   1.32  -1.94  -0.25   0.64   1.57   3.25    923    1.0
-    y_pred[6]     0.61    0.04    1.3  -1.95  -0.23   0.61   1.51   3.03   1008    1.0
-    y_pred[7]     0.73    0.04   1.31  -1.91  -0.14   0.79    1.6   3.26    997    1.0
-    y_pred[8]     0.72    0.04   1.26  -1.77  -0.14   0.73    1.6   3.02   1103    1.0
-    y_pred[9]     0.74    0.04   1.25  -1.69  -0.09   0.73    1.6   3.22   1144    1.0
-    y_pred[10]    0.69    0.04   1.27  -1.81  -0.17   0.69   1.53   3.32   1093    1.0
-    y_pred[11]    0.68    0.04   1.26  -1.84  -0.14   0.68   1.54   3.06    946    1.0
-    y_pred[12]    0.75    0.04   1.29  -1.85  -0.12   0.76    1.7   3.38    969    1.0
-    y_pred[13]    0.73    0.04   1.28  -1.83  -0.05   0.75   1.55   3.34   1112    1.0
-    y_pred[14]    0.73    0.04   1.27   -1.8  -0.06    0.7   1.49   3.18   1026    1.0
-    y_pred[15]    0.73    0.04   1.26  -1.65  -0.17   0.73   1.55   3.16   1115    1.0
-    y_pred[16]    0.69    0.04   1.27  -1.79  -0.14    0.7   1.56   3.18   1016    1.0
-    y_pred[17]    0.72    0.04   1.28  -1.77   -0.1   0.68    1.6   3.12   1041    1.0
-    y_pred[18]    0.75    0.04   1.25  -1.79  -0.06   0.75   1.56   3.21   1104    1.0
-    y_pred[19]    0.67    0.04    1.3  -1.84  -0.13   0.66   1.59   3.13    965    1.0
-    y_pred[20]    0.76    0.04   1.25  -1.71   -0.1   0.79   1.56   3.26   1066   1.01
-    y_pred[21]    0.68    0.04   1.25  -1.78  -0.16   0.68   1.44   3.14   1105    1.0
-    y_pred[22]    0.64    0.04   1.24  -1.77  -0.19    0.6   1.43   3.11    841    1.0
-    y_pred[23]    0.62    0.04   1.33   -1.9  -0.36   0.65   1.56   3.23    948    1.0
-    y_pred[24]    0.72    0.04   1.31  -1.88  -0.23   0.75   1.53    3.2   1057    1.0
-    y_pred[25]    0.62    0.04   1.29  -1.91  -0.25   0.64   1.48   3.13    861    1.0
-    y_pred[26]    0.66    0.04   1.32  -2.07  -0.22   0.65   1.55    3.3    952    1.0
-    y_pred[27]    0.77    0.04   1.29  -1.83  -0.09    0.8   1.66   3.23    918    1.0
-    y_pred[28]    0.72    0.04   1.25  -1.59  -0.15    0.7   1.57   3.15    912    1.0
-    y_pred[29]    0.68    0.04   1.28  -1.81  -0.17   0.72   1.51   3.21   1114    1.0
-    y_pred[30]    0.62    0.04   1.22   -1.8  -0.19   0.57   1.46   2.98    993    1.0
-    y_pred[31]    0.67    0.04   1.29  -1.82  -0.21   0.66   1.56   3.19    973    1.0
-    y_pred[32]    0.67    0.04   1.27  -1.84  -0.19    0.7   1.55   3.14   1029    1.0
-    y_pred[33]    0.69    0.04   1.28   -1.7   -0.2   0.66    1.5   3.38   1012    1.0
-    y_pred[34]     0.7    0.04   1.24  -1.79  -0.08   0.74   1.52   3.05   1006    1.0
-    y_pred[35]    0.69    0.04    1.3  -1.85  -0.19   0.72   1.62   3.09    969    1.0
-    y_pred[36]    0.63    0.04   1.27  -1.87  -0.19   0.62   1.51   3.07   1040    1.0
-    y_pred[37]    0.73    0.04   1.28  -1.69  -0.15   0.73   1.63   3.21    881    1.0
-    y_pred[38]   -0.74    0.04   1.24  -3.19  -1.52  -0.78   0.12   1.67   1172    1.0
-    y_pred[39]   -0.81    0.04    1.3  -3.29  -1.66  -0.82   0.02   1.75   1068    1.0
-    y_pred[40]   -0.72    0.04   1.25  -3.17  -1.55  -0.69   0.12   1.67    871    1.0
-    y_pred[41]   -0.77    0.04   1.26  -3.27  -1.61   -0.8   0.07   1.67    852    1.0
-    y_pred[42]    -0.8    0.04    1.3  -3.36  -1.64  -0.81   0.02   1.91   1054    1.0
-    y_pred[43]   -0.84    0.04   1.29  -3.35  -1.75  -0.81   0.06    1.7    964    1.0
-    y_pred[44]   -0.77    0.04   1.32  -3.35  -1.72  -0.78   0.15   1.81    878    1.0
-    y_pred[45]   -0.72    0.04   1.27  -3.16  -1.64   -0.7   0.15   1.81    849    1.0
-    y_pred[46]   -0.76    0.04    1.3   -3.5  -1.58  -0.72   0.09   1.64   1026    1.0
-    y_pred[47]   -0.77    0.05   1.29  -3.09  -1.66  -0.81   0.12   1.72    701    1.0
-    y_pred[48]   -0.86    0.04   1.25  -3.33  -1.68  -0.92-1.8e-3   1.62    958    1.0
-    y_pred[49]   -0.75    0.04   1.29  -3.22   -1.6  -0.75   0.12   1.83    978    1.0
-    y_pred[50]   -0.85    0.05   1.26  -3.47  -1.66  -0.84  -0.02   1.59    749    1.0
-    y_pred[51]   -0.73    0.04   1.24  -3.17  -1.56  -0.78   0.06   1.78   1025    1.0
-    y_pred[52]   -0.85    0.04   1.26  -3.26  -1.73  -0.87-1.0e-3   1.56   1063    1.0
-    y_pred[53]    -0.8    0.04   1.27  -3.28  -1.64  -0.75   0.02   1.66    958    1.0
-    y_pred[54]   -0.79    0.04   1.24  -3.31  -1.63  -0.77   0.01   1.67   1079    1.0
-    y_pred[55]   -0.87    0.04   1.32  -3.33  -1.79  -0.88 3.1e-3   1.78    942    1.0
-    y_pred[56]   -0.84    0.04   1.29  -3.23  -1.75  -0.85   0.02   1.76   1017    1.0
-    y_pred[57]   -0.84    0.04   1.25  -3.16  -1.69  -0.86 5.1e-3   1.68   1022    1.0
-    y_pred[58]   -0.78    0.04   1.26  -3.21  -1.65   -0.8    0.1   1.65   1037    1.0
-    y_pred[59]   -0.79    0.04   1.26  -3.29  -1.61  -0.81   0.03   1.72    782    1.0
-    y_pred[60]   -0.82    0.04   1.27   -3.3  -1.67  -0.79  -0.01   1.62   1004    1.0
-    y_pred[61]   -0.79    0.04   1.23  -3.19  -1.65  -0.77-8.8e-3   1.67   1014    1.0
-    y_pred[62]   -0.85    0.04   1.25  -3.27  -1.72   -0.8-9.2e-3   1.52   1022    1.0
-    y_pred[63]   -0.86    0.04   1.29  -3.35  -1.71  -0.89   0.02   1.67    921    1.0
-    y_pred[64]   -0.79    0.04   1.27  -3.34  -1.68  -0.77   0.05   1.86    847    1.0
-    y_pred[65]   -0.84    0.04   1.33   -3.3   -1.8  -0.86   0.11   1.83   1041    1.0
-    y_pred[66]   -0.83    0.04    1.3  -3.43  -1.68  -0.84   0.04   1.74   1019    1.0
-    y_pred[67]    -0.8    0.04   1.27  -3.26  -1.65  -0.83   0.07   1.69    895    1.0
-    y_pred[68]    -0.8    0.04   1.32  -3.35  -1.68  -0.85   0.12   1.84   1055    1.0
-    y_pred[69]   -0.82    0.04   1.27  -3.39  -1.68   -0.8   0.02   1.78   1024    1.0
-    y_pred[70]   -0.84    0.04    1.3   -3.4  -1.77  -0.88   0.07   1.71    915    1.0
-    lp__        -722.6    0.21   3.75 -730.6 -724.9 -722.3 -719.8 -716.2    315   1.01
-    
-    Samples were drawn using NUTS at Sun Aug 23 09:18:11 2020.
-    For each parameter, n_eff is a crude measure of effective sample size,
-    and Rhat is the potential scale reduction factor on split chains (at 
-    convergence, Rhat=1).
+    'y': modeling_data.lfc,
+}
+```
+
+**Compile model.**
 
 
+```python
+start = timer()
+d2_m3_file = models_dir / 'd2_m3.cpp'
+d2_m3 = pystan.StanModel(file=d2_m3_file.as_posix())
+end = timer()
+print(f'{(end - start) / 60:.2f} minutes to compile model')
+```
+
+    INFO:pystan:COMPILING THE C++ CODE FOR MODEL anon_model_fdb12fa958279899a501dc9f27a621f0 NOW.
+
+
+    0.75 minutes to compile model
+
+
+
+```python
+d2_m3_control = {'adapt_delta': 0.999, 
+                 'max_treedepth': 20}
+d2_m3_fit = d2_m3.sampling(data=d2_m3_data, 
+                           iter=3000, warmup=1000, chains=4, 
+                           control=d2_m3_control)
+```
+
+    WARNING:pystan:16 of 8000 iterations ended with a divergence (0.2 %).
+    WARNING:pystan:Try running with adapt_delta larger than 0.999 to remove the divergences.
+
+
+
+```python
+pystan.check_hmc_diagnostics(d2_m3_fit)
+```
+
+    WARNING:pystan:16 of 8000 iterations ended with a divergence (0.2 %).
+    WARNING:pystan:Try running with adapt_delta larger than 0.999 to remove the divergences.
+
+
+
+
+
+    {'n_eff': True,
+     'Rhat': True,
+     'divergence': False,
+     'treedepth': True,
+     'energy': True}
+
+
+
+
+```python
+az_d2_m3 = az.from_pystan(posterior=d2_m3_fit,
+                          posterior_predictive='y_pred',
+                          observed_data=['y'],
+                          posterior_model=d2_m3)
+az.summary(az_d2_m3).head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean</th>
+      <th>sd</th>
+      <th>hpd_3%</th>
+      <th>hpd_97%</th>
+      <th>mcse_mean</th>
+      <th>mcse_sd</th>
+      <th>ess_mean</th>
+      <th>ess_sd</th>
+      <th>ess_bulk</th>
+      <th>ess_tail</th>
+      <th>r_hat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>mu_alpha</th>
+      <td>-0.838</td>
+      <td>1.406</td>
+      <td>-3.269</td>
+      <td>1.990</td>
+      <td>0.084</td>
+      <td>0.059</td>
+      <td>280.0</td>
+      <td>280.0</td>
+      <td>279.0</td>
+      <td>333.0</td>
+      <td>1.02</td>
+    </tr>
+    <tr>
+      <th>sigma_alpha</th>
+      <td>1.204</td>
+      <td>0.198</td>
+      <td>0.871</td>
+      <td>1.584</td>
+      <td>0.004</td>
+      <td>0.003</td>
+      <td>2011.0</td>
+      <td>1969.0</td>
+      <td>2109.0</td>
+      <td>2515.0</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <th>mu_g</th>
+      <td>-0.923</td>
+      <td>1.417</td>
+      <td>-3.789</td>
+      <td>1.595</td>
+      <td>0.080</td>
+      <td>0.056</td>
+      <td>315.0</td>
+      <td>315.0</td>
+      <td>316.0</td>
+      <td>390.0</td>
+      <td>1.02</td>
+    </tr>
+    <tr>
+      <th>sigma_g</th>
+      <td>0.857</td>
+      <td>0.924</td>
+      <td>0.011</td>
+      <td>2.238</td>
+      <td>0.029</td>
+      <td>0.020</td>
+      <td>1036.0</td>
+      <td>1036.0</td>
+      <td>626.0</td>
+      <td>637.0</td>
+      <td>1.01</td>
+    </tr>
+    <tr>
+      <th>alpha[0]</th>
+      <td>1.768</td>
+      <td>1.457</td>
+      <td>-0.719</td>
+      <td>4.763</td>
+      <td>0.084</td>
+      <td>0.060</td>
+      <td>297.0</td>
+      <td>297.0</td>
+      <td>297.0</td>
+      <td>373.0</td>
+      <td>1.02</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+az.plot_trace(az_d2_m3, var_names=['g'])
+plt.show()
+```
+
+
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_63_0.png)
+
+
+
+```python
+az.plot_ppc(az_d2_m3, data_pairs={'y':'y_pred'}, num_pp_samples=50)
+plt.show()
+```
+
+
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_64_0.png)
+
+
+
+```python
+fit3_summary = az.summary(az_d2_m3)
+```
+
+
+```python
+fit3_alpha_summary = fit3_summary[fit3_summary.index.str.contains('alpha\[')]
+shrna_idx = [re.search(r"\[([A-Za-z0-9_]+)\]", a).group(1) for a in fit3_alpha_summary.index]
+shrna_idx = [int(a) + 1 for a in shrna_idx]
+fit3_alpha_summary = fit3_alpha_summary \
+    .assign(barcode_sequence_idx = shrna_idx) \
+    .set_index('barcode_sequence_idx') \
+    .join(modeling_data[['barcode_sequence_idx', 'gene_symbol']] \
+          .drop_duplicates() \
+          .set_index('barcode_sequence_idx'))
+fit3_alpha_summary.head(10)
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean</th>
+      <th>sd</th>
+      <th>hpd_3%</th>
+      <th>hpd_97%</th>
+      <th>mcse_mean</th>
+      <th>mcse_sd</th>
+      <th>ess_mean</th>
+      <th>ess_sd</th>
+      <th>ess_bulk</th>
+      <th>ess_tail</th>
+      <th>r_hat</th>
+      <th>gene_symbol</th>
+    </tr>
+    <tr>
+      <th>barcode_sequence_idx</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>1.768</td>
+      <td>1.457</td>
+      <td>-0.719</td>
+      <td>4.763</td>
+      <td>0.084</td>
+      <td>0.060</td>
+      <td>297.0</td>
+      <td>297.0</td>
+      <td>297.0</td>
+      <td>373.0</td>
+      <td>1.02</td>
+      <td>EIF6</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.272</td>
+      <td>1.461</td>
+      <td>-2.255</td>
+      <td>3.253</td>
+      <td>0.085</td>
+      <td>0.060</td>
+      <td>293.0</td>
+      <td>293.0</td>
+      <td>293.0</td>
+      <td>393.0</td>
+      <td>1.02</td>
+      <td>EIF6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-0.916</td>
+      <td>1.486</td>
+      <td>-3.585</td>
+      <td>1.920</td>
+      <td>0.089</td>
+      <td>0.063</td>
+      <td>278.0</td>
+      <td>278.0</td>
+      <td>277.0</td>
+      <td>386.0</td>
+      <td>1.02</td>
+      <td>COL8A1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-0.488</td>
+      <td>1.451</td>
+      <td>-3.092</td>
+      <td>2.300</td>
+      <td>0.086</td>
+      <td>0.061</td>
+      <td>282.0</td>
+      <td>282.0</td>
+      <td>282.0</td>
+      <td>346.0</td>
+      <td>1.02</td>
+      <td>KRAS</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>-1.336</td>
+      <td>1.454</td>
+      <td>-3.930</td>
+      <td>1.479</td>
+      <td>0.086</td>
+      <td>0.061</td>
+      <td>284.0</td>
+      <td>284.0</td>
+      <td>284.0</td>
+      <td>373.0</td>
+      <td>1.02</td>
+      <td>KRAS</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.619</td>
+      <td>1.458</td>
+      <td>-2.258</td>
+      <td>3.276</td>
+      <td>0.083</td>
+      <td>0.058</td>
+      <td>312.0</td>
+      <td>312.0</td>
+      <td>311.0</td>
+      <td>383.0</td>
+      <td>1.01</td>
+      <td>COG3</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>-0.617</td>
+      <td>1.459</td>
+      <td>-3.377</td>
+      <td>2.152</td>
+      <td>0.082</td>
+      <td>0.058</td>
+      <td>314.0</td>
+      <td>314.0</td>
+      <td>314.0</td>
+      <td>376.0</td>
+      <td>1.01</td>
+      <td>COG3</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>-1.601</td>
+      <td>1.452</td>
+      <td>-4.194</td>
+      <td>1.201</td>
+      <td>0.086</td>
+      <td>0.061</td>
+      <td>284.0</td>
+      <td>284.0</td>
+      <td>284.0</td>
+      <td>361.0</td>
+      <td>1.02</td>
+      <td>KRAS</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.806</td>
+      <td>1.453</td>
+      <td>-1.714</td>
+      <td>3.661</td>
+      <td>0.086</td>
+      <td>0.061</td>
+      <td>284.0</td>
+      <td>284.0</td>
+      <td>284.0</td>
+      <td>360.0</td>
+      <td>1.02</td>
+      <td>KRAS</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>-0.170</td>
+      <td>1.452</td>
+      <td>-2.825</td>
+      <td>2.575</td>
+      <td>0.086</td>
+      <td>0.061</td>
+      <td>283.0</td>
+      <td>283.0</td>
+      <td>283.0</td>
+      <td>366.0</td>
+      <td>1.02</td>
+      <td>KRAS</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+fit3_gene_summary = fit3_summary[fit3_summary.index.str.contains('g\[')]
+gene_idx = [re.search(r"\[([A-Za-z0-9_]+)\]", a).group(1) for a in fit3_gene_summary.index]
+gene_idx = [int(a) + 1 for a in gene_idx]
+fit3_gene_summary = fit3_gene_summary \
+    .assign(gene_symbol_idx = gene_idx) \
+    .set_index('gene_symbol_idx') \
+    .join(modeling_data[['gene_symbol_idx', 'gene_symbol']] \
+          .drop_duplicates() \
+          .set_index('gene_symbol_idx')) \
+    .reset_index(drop=False)
+fit3_gene_summary.head(10)
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gene_symbol_idx</th>
+      <th>mean</th>
+      <th>sd</th>
+      <th>hpd_3%</th>
+      <th>hpd_97%</th>
+      <th>mcse_mean</th>
+      <th>mcse_sd</th>
+      <th>ess_mean</th>
+      <th>ess_sd</th>
+      <th>ess_bulk</th>
+      <th>ess_tail</th>
+      <th>r_hat</th>
+      <th>gene_symbol</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>-0.530</td>
+      <td>1.450</td>
+      <td>-3.195</td>
+      <td>2.340</td>
+      <td>0.082</td>
+      <td>0.058</td>
+      <td>310.0</td>
+      <td>310.0</td>
+      <td>309.0</td>
+      <td>392.0</td>
+      <td>1.01</td>
+      <td>COG3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>-1.351</td>
+      <td>1.474</td>
+      <td>-4.134</td>
+      <td>1.324</td>
+      <td>0.089</td>
+      <td>0.063</td>
+      <td>274.0</td>
+      <td>274.0</td>
+      <td>273.0</td>
+      <td>393.0</td>
+      <td>1.02</td>
+      <td>COL8A1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>-1.076</td>
+      <td>1.449</td>
+      <td>-4.012</td>
+      <td>1.476</td>
+      <td>0.085</td>
+      <td>0.060</td>
+      <td>289.0</td>
+      <td>289.0</td>
+      <td>289.0</td>
+      <td>363.0</td>
+      <td>1.02</td>
+      <td>EIF6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>-1.027</td>
+      <td>1.440</td>
+      <td>-3.837</td>
+      <td>1.511</td>
+      <td>0.086</td>
+      <td>0.061</td>
+      <td>278.0</td>
+      <td>278.0</td>
+      <td>278.0</td>
+      <td>341.0</td>
+      <td>1.02</td>
+      <td>KRAS</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+for i in range(fit3_gene_summary.shape[0]):
+    plt.plot(np.repeat(fit3_gene_summary.loc[i, 'gene_symbol'], 2), 
+             [fit3_gene_summary.loc[i, 'hpd_3%'], fit3_gene_summary.loc[i, 'hpd_97%']],
+             color='red', alpha=0.5)
+
+
+plt.scatter(fit3_gene_summary['gene_symbol'], 
+            fit3_gene_summary['mean'],
+            s=100, c='r', label='gene')
+plt.scatter(fit3_alpha_summary['gene_symbol'], 
+            fit3_alpha_summary['mean'], 
+            alpha=0.3, s=75, c='b', label='shRNA')
+
+plt.title('shRNA and gene mean values')
+plt.xlabel('target gene')
+plt.ylabel('estimated effect on LFC')
+plt.legend()
+plt.show()
+```
+
+
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_68_0.png)
+
+
+## Model 4. Parameters for difference between average gene effect and cell line-specific effect
+
+$$
+D_{i|s} \sim N(\mu_{i|s}, \sigma) \\
+\mu = c_{i|s} + \bar g_{i|l} - g_{i|jl} \\
+c_s \sim N(0, \sigma_c) \\
+\bar g_l \sim N(\mu_{\bar g}, \sigma_{\bar g}) \\
+g_{jl} \sim N(0, \sigma_g) \\
+\sigma_c \sim \text{HalfCauchy}(0, 3) \\
+\mu_{\bar g} \sim N(0, 2) \quad \sigma_{\bar g} \sim \text{HalfCauchy}(0, 10) \\
+\sigma_g \sim \text{HalfCauchy}(0, 5) \\
+\sigma \sim \text{HalfCauchy}(0, 10)
+$$
 
 
 ```python
