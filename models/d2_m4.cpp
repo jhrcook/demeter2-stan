@@ -23,7 +23,9 @@ parameters {
     real gbar[L];
     real g[J,L];
     
-    real<lower=0> sigma;
+    real<lower=0> mu_sigma;
+    real<lower=0> sigma_sigma;
+    real<lower=0> sigma[S];
 }
 
 model {
@@ -32,20 +34,26 @@ model {
     mu_gbar ~ normal(0, 2.0);
     sigma_gbar ~ normal(0, 5.0);
     sigma_g ~ normal(0, 5.0);
+    mu_sigma ~ normal(0, 2.0);
+    sigma_sigma ~ normal(0, 1.0);
     
     // Priors
     c ~ normal(0, sigma_c);
     gbar ~ normal(mu_gbar, sigma_gbar);
     for (l in 1:L)
         g[,l] ~ normal(0, sigma_g);
-    sigma ~ normal(0, 5.0);
+    
+    for (s in 1:S)
+        sigma[s] ~ normal(mu_sigma, sigma_sigma);
     
     {
         vector[N] y_hat;
-        for (n in 1:N)
+        for (n in 1:N) {
             y_hat[n] = c[shrna[n]] + gbar[gene[n]] + g[cell_line[n], gene[n]];
-        y ~ normal(y_hat, sigma);
+            y[n] ~ normal(y_hat[n], sigma[shrna[n]]);
+        }
     }
+        
 }
 
 generated quantities {
@@ -53,5 +61,5 @@ generated quantities {
     
     // Posterior predictions
     for (n in 1:N)
-        y_pred[n] = normal_rng(c[shrna[n]] + gbar[gene[n]] + g[cell_line[n], gene[n]], sigma);
+        y_pred[n] = normal_rng(c[shrna[n]] + gbar[gene[n]] + g[cell_line[n], gene[n]], sigma[shrna[n]]);
 }
