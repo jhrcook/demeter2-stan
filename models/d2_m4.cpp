@@ -28,28 +28,30 @@ parameters {
 
 model {
     // Hyperpriors
-    sigma_c ~ cauchy(0, 3.0);
+    sigma_c ~ normal(0, 3.0);
     mu_gbar ~ normal(0, 2.0);
-    sigma_gbar ~ cauchy(0, 10.0);
-    sigma_g ~ cauchy(0, 5.0);
+    sigma_gbar ~ normal(0, 5.0);
+    sigma_g ~ normal(0, 5.0);
     
     // Priors
     c ~ normal(0, sigma_c);
     gbar ~ normal(mu_gbar, sigma_gbar);
     for (l in 1:L)
         g[,l] ~ normal(0, sigma_g);
-    sigma ~ cauchy(0, 10.0);
+    sigma ~ normal(0, 5.0);
     
     {
         vector[N] y_hat;
         for (n in 1:N)
-            y_hat[n] = c[shrna[n]] + gbar[gene[n]] - g[cell_line[n], gene[n]];
+            y_hat[n] = c[shrna[n]] + gbar[gene[n]] + g[cell_line[n], gene[n]];
         y ~ normal(y_hat, sigma);
     }
 }
 
 generated quantities {
     vector[N] y_pred;
+    
+    // Posterior predictions
     for (n in 1:N)
-        y_pred[n] = normal_rng(c[shrna[n]] + gbar[gene[n]] - g[cell_line[n], gene[n]], sigma);
+        y_pred[n] = normal_rng(c[shrna[n]] + gbar[gene[n]] + g[cell_line[n], gene[n]], sigma);
 }

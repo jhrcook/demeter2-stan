@@ -9,10 +9,10 @@ generated quantities {
     vector[S] alpha;
     vector[N] y_pred;
     
-    real mu_alpha = normal_rng(0, 1.0);
-    real sigma_alpha = abs(cauchy_rng(0, 1.0));
+    real mu_alpha = normal_rng(0, 2.0);
+    real<lower=0> sigma_alpha = abs(cauchy_rng(0, 10.0));
     
-    real sigma = abs(cauchy_rng(0, 1.5));
+    real<lower=0> sigma = abs(cauchy_rng(0, 10.0));
     
     for (s in 1:S) {
         alpha[s] = normal_rng(mu_alpha, sigma_alpha);
