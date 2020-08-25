@@ -181,3 +181,4 @@ dmypy.json
 
 
 data/
+notebooks/cached-stan-models/
