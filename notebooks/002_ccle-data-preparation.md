@@ -351,11 +351,6 @@ kras_mutations[kras_mutations.protein_change.str.contains(';')]
 
 
 ```python
-mutation_df.to_csv(modeling_data_dir / 'ccle_mutations.csv')
-kras_mutations.to_csv(modeling_data_dir / 'kras_mutants.csv')
-```
-
-
-```python
-
+mutation_df.to_csv(modeling_data_dir / 'ccle_mutations.csv', index=False)
+kras_mutations.to_csv(modeling_data_dir / 'kras_mutants.csv', index=False)
 ```
