@@ -13,7 +13,10 @@ from timeit import default_timer as timer
 import warnings
 import re
 from notebook_modules.pystan_helpers import StanModel_cache
+```
 
+
+```python
 plt.style.use('seaborn-whitegrid')
 plt.rcParams['figure.figsize'] = (10.0, 7.0)
 plt.rcParams['axes.titlesize'] = 18
@@ -132,7 +135,7 @@ plt.show()
 ```
 
 
-![png](005_demeter2-in-stan_files/005_demeter2-in-stan_5_0.png)
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_6_0.png)
 
 
 
@@ -148,7 +151,7 @@ plt.show()
 ```
 
 
-![png](005_demeter2-in-stan_files/005_demeter2-in-stan_6_0.png)
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_7_0.png)
 
 
 
@@ -158,7 +161,7 @@ plt.show()
 ```
 
 
-![png](005_demeter2-in-stan_files/005_demeter2-in-stan_7_0.png)
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_8_0.png)
 
 
 
@@ -272,7 +275,7 @@ plt.show()
 ```
 
 
-![png](005_demeter2-in-stan_files/005_demeter2-in-stan_9_0.png)
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_10_0.png)
 
 
 ## Modeling
@@ -429,7 +432,7 @@ plt.show()
 ```
 
 
-![png](005_demeter2-in-stan_files/005_demeter2-in-stan_18_0.png)
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_19_0.png)
 
 
 
@@ -681,29 +684,29 @@ az.summary(az_d2_m1)
     <tr>
       <th>alpha</th>
       <td>-1.290</td>
-      <td>0.032</td>
+      <td>0.030</td>
       <td>-1.347</td>
-      <td>-1.231</td>
+      <td>-1.235</td>
       <td>0.001</td>
       <td>0.0</td>
-      <td>2134.0</td>
-      <td>2126.0</td>
-      <td>2150.0</td>
+      <td>1958.0</td>
+      <td>1952.0</td>
+      <td>1925.0</td>
       <td>1230.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>sigma</th>
-      <td>1.737</td>
+      <td>1.736</td>
       <td>0.021</td>
-      <td>1.695</td>
-      <td>1.774</td>
+      <td>1.696</td>
+      <td>1.775</td>
       <td>0.000</td>
       <td>0.0</td>
-      <td>2039.0</td>
-      <td>2035.0</td>
-      <td>2044.0</td>
-      <td>1304.0</td>
+      <td>2269.0</td>
+      <td>2269.0</td>
+      <td>2273.0</td>
+      <td>1545.0</td>
       <td>1.0</td>
     </tr>
   </tbody>
@@ -719,7 +722,7 @@ plt.show()
 ```
 
 
-![png](005_demeter2-in-stan_files/005_demeter2-in-stan_31_0.png)
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_32_0.png)
 
 
 
@@ -729,7 +732,7 @@ plt.show()
 ```
 
 
-![png](005_demeter2-in-stan_files/005_demeter2-in-stan_32_0.png)
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_33_0.png)
 
 
 
@@ -739,7 +742,7 @@ plt.show()
 ```
 
 
-![png](005_demeter2-in-stan_files/005_demeter2-in-stan_33_0.png)
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_34_0.png)
 
 
 ## Model 2. Varying intercept by shRNA
@@ -804,7 +807,7 @@ plt.show()
 ```
 
 
-![png](005_demeter2-in-stan_files/005_demeter2-in-stan_41_0.png)
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_42_0.png)
 
 
 
@@ -818,7 +821,7 @@ plt.show()
 ```
 
 
-![png](005_demeter2-in-stan_files/005_demeter2-in-stan_42_0.png)
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_43_0.png)
 
 
 
@@ -828,7 +831,7 @@ plt.show()
 ```
 
 
-![png](005_demeter2-in-stan_files/005_demeter2-in-stan_43_0.png)
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_44_0.png)
 
 
 **Model data**
@@ -939,73 +942,73 @@ az.summary(az_d2_m2).head()
   <tbody>
     <tr>
       <th>mu_alpha</th>
-      <td>-1.215</td>
-      <td>0.125</td>
-      <td>-1.459</td>
+      <td>-1.222</td>
+      <td>0.124</td>
+      <td>-1.481</td>
       <td>-1.001</td>
       <td>0.004</td>
       <td>0.003</td>
-      <td>1018.0</td>
-      <td>993.0</td>
-      <td>1012.0</td>
-      <td>678.0</td>
-      <td>1.0</td>
+      <td>1058.0</td>
+      <td>1058.0</td>
+      <td>1082.0</td>
+      <td>574.0</td>
+      <td>1.01</td>
     </tr>
     <tr>
       <th>sigma_alpha</th>
       <td>1.276</td>
       <td>0.087</td>
-      <td>1.111</td>
-      <td>1.430</td>
+      <td>1.132</td>
+      <td>1.461</td>
       <td>0.003</td>
       <td>0.002</td>
-      <td>950.0</td>
-      <td>939.0</td>
-      <td>934.0</td>
-      <td>705.0</td>
-      <td>1.0</td>
+      <td>1031.0</td>
+      <td>1007.0</td>
+      <td>1049.0</td>
+      <td>643.0</td>
+      <td>1.00</td>
     </tr>
     <tr>
       <th>alpha[0]</th>
-      <td>0.730</td>
-      <td>0.202</td>
-      <td>0.340</td>
-      <td>1.120</td>
-      <td>0.007</td>
-      <td>0.005</td>
-      <td>905.0</td>
-      <td>824.0</td>
-      <td>907.0</td>
-      <td>499.0</td>
-      <td>1.0</td>
+      <td>0.714</td>
+      <td>0.201</td>
+      <td>0.330</td>
+      <td>1.062</td>
+      <td>0.006</td>
+      <td>0.004</td>
+      <td>1205.0</td>
+      <td>1205.0</td>
+      <td>1252.0</td>
+      <td>551.0</td>
+      <td>1.01</td>
     </tr>
     <tr>
       <th>alpha[1]</th>
-      <td>-0.261</td>
-      <td>0.204</td>
-      <td>-0.614</td>
-      <td>0.142</td>
-      <td>0.006</td>
+      <td>-0.250</td>
+      <td>0.190</td>
+      <td>-0.616</td>
+      <td>0.087</td>
+      <td>0.007</td>
       <td>0.005</td>
-      <td>1273.0</td>
-      <td>787.0</td>
-      <td>1278.0</td>
-      <td>595.0</td>
-      <td>1.0</td>
+      <td>836.0</td>
+      <td>836.0</td>
+      <td>847.0</td>
+      <td>582.0</td>
+      <td>1.00</td>
     </tr>
     <tr>
       <th>alpha[2]</th>
-      <td>-0.779</td>
-      <td>0.189</td>
-      <td>-1.169</td>
-      <td>-0.467</td>
+      <td>-0.784</td>
+      <td>0.211</td>
+      <td>-1.180</td>
+      <td>-0.395</td>
+      <td>0.006</td>
       <td>0.005</td>
-      <td>0.004</td>
-      <td>1260.0</td>
-      <td>1213.0</td>
-      <td>1254.0</td>
-      <td>774.0</td>
-      <td>1.0</td>
+      <td>1100.0</td>
+      <td>1047.0</td>
+      <td>1084.0</td>
+      <td>668.0</td>
+      <td>1.00</td>
     </tr>
   </tbody>
 </table>
@@ -1020,7 +1023,7 @@ plt.show()
 ```
 
 
-![png](005_demeter2-in-stan_files/005_demeter2-in-stan_52_0.png)
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_53_0.png)
 
 
 
@@ -1031,7 +1034,7 @@ plt.show()
 ```
 
 
-![png](005_demeter2-in-stan_files/005_demeter2-in-stan_53_0.png)
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_54_0.png)
 
 
 
@@ -1041,7 +1044,7 @@ plt.show()
 ```
 
 
-![png](005_demeter2-in-stan_files/005_demeter2-in-stan_54_0.png)
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_55_0.png)
 
 
 
@@ -1099,120 +1102,120 @@ d2_m2_fit.to_dataframe().head()
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>-1.455545</td>
-      <td>1.342933</td>
-      <td>0.725803</td>
-      <td>-0.069529</td>
-      <td>-1.002128</td>
-      <td>0.434654</td>
-      <td>-2.116150</td>
+      <td>-1.263567</td>
+      <td>1.286463</td>
+      <td>0.691531</td>
+      <td>-0.410589</td>
+      <td>-0.486056</td>
+      <td>0.140605</td>
+      <td>-2.252227</td>
       <td>...</td>
-      <td>-2.176713</td>
-      <td>0.699725</td>
-      <td>-1.595175</td>
-      <td>-2389.397468</td>
-      <td>0.723386</td>
-      <td>0.490956</td>
-      <td>3</td>
-      <td>7</td>
+      <td>-1.821982</td>
+      <td>-4.610282</td>
+      <td>-0.057629</td>
+      <td>-2395.220205</td>
+      <td>0.834995</td>
+      <td>0.418915</td>
+      <td>5</td>
+      <td>55</td>
       <td>0</td>
-      <td>2447.588094</td>
+      <td>2445.602866</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0</td>
       <td>1</td>
       <td>0</td>
-      <td>-1.075712</td>
-      <td>1.218258</td>
-      <td>1.063995</td>
-      <td>-0.213949</td>
-      <td>-0.689021</td>
-      <td>0.077516</td>
-      <td>-1.980579</td>
+      <td>-1.294416</td>
+      <td>1.323071</td>
+      <td>0.697405</td>
+      <td>-0.267598</td>
+      <td>-1.044003</td>
+      <td>0.264281</td>
+      <td>-2.362734</td>
       <td>...</td>
-      <td>-0.258277</td>
-      <td>0.272606</td>
-      <td>-2.511907</td>
-      <td>-2385.244513</td>
-      <td>1.000000</td>
-      <td>0.490956</td>
-      <td>3</td>
+      <td>0.730910</td>
+      <td>-0.803228</td>
+      <td>-1.128669</td>
+      <td>-2394.569464</td>
+      <td>0.937689</td>
+      <td>0.418915</td>
       <td>7</td>
+      <td>143</td>
       <td>0</td>
-      <td>2433.071477</td>
+      <td>2451.366998</td>
     </tr>
     <tr>
       <th>2</th>
       <td>0</td>
       <td>2</td>
       <td>0</td>
-      <td>-1.373017</td>
-      <td>1.251750</td>
-      <td>0.071485</td>
-      <td>-0.108056</td>
-      <td>-1.014538</td>
-      <td>0.285502</td>
-      <td>-2.715460</td>
+      <td>-1.374924</td>
+      <td>1.356104</td>
+      <td>0.803428</td>
+      <td>-0.176478</td>
+      <td>-1.007182</td>
+      <td>0.161903</td>
+      <td>-2.297076</td>
       <td>...</td>
-      <td>-0.047007</td>
-      <td>-0.762857</td>
-      <td>0.081047</td>
-      <td>-2390.689462</td>
-      <td>0.905808</td>
-      <td>0.490956</td>
+      <td>-3.385013</td>
+      <td>-1.969810</td>
+      <td>0.468591</td>
+      <td>-2395.033725</td>
+      <td>0.853836</td>
+      <td>0.418915</td>
       <td>3</td>
-      <td>7</td>
+      <td>15</td>
       <td>0</td>
-      <td>2434.283172</td>
+      <td>2456.917527</td>
     </tr>
     <tr>
       <th>3</th>
       <td>0</td>
       <td>3</td>
       <td>0</td>
-      <td>-1.052398</td>
-      <td>1.260361</td>
-      <td>0.854451</td>
-      <td>-0.470255</td>
-      <td>-1.078336</td>
-      <td>0.103284</td>
-      <td>-2.099655</td>
+      <td>-1.464064</td>
+      <td>1.165498</td>
+      <td>0.857390</td>
+      <td>-0.004899</td>
+      <td>-1.059237</td>
+      <td>-0.043809</td>
+      <td>-2.267916</td>
       <td>...</td>
-      <td>-0.927995</td>
-      <td>-1.821948</td>
-      <td>-0.333319</td>
-      <td>-2390.336283</td>
-      <td>0.994167</td>
-      <td>0.490956</td>
-      <td>3</td>
-      <td>7</td>
+      <td>0.264705</td>
+      <td>0.080555</td>
+      <td>0.108367</td>
+      <td>-2395.912197</td>
+      <td>0.954930</td>
+      <td>0.418915</td>
+      <td>5</td>
+      <td>55</td>
       <td>0</td>
-      <td>2441.297353</td>
+      <td>2449.214887</td>
     </tr>
     <tr>
       <th>4</th>
       <td>0</td>
       <td>4</td>
       <td>0</td>
-      <td>-1.205699</td>
-      <td>1.196109</td>
-      <td>0.666829</td>
-      <td>0.126224</td>
-      <td>-0.626311</td>
-      <td>0.434879</td>
-      <td>-2.054807</td>
+      <td>-1.029178</td>
+      <td>1.369234</td>
+      <td>0.585008</td>
+      <td>-0.558714</td>
+      <td>-0.510735</td>
+      <td>0.471418</td>
+      <td>-2.217178</td>
       <td>...</td>
-      <td>-1.568530</td>
-      <td>-0.767901</td>
-      <td>-3.963464</td>
-      <td>-2400.591625</td>
-      <td>0.617053</td>
-      <td>0.490956</td>
+      <td>-2.383169</td>
+      <td>-2.772807</td>
+      <td>-0.843937</td>
+      <td>-2396.046197</td>
+      <td>0.936803</td>
+      <td>0.418915</td>
       <td>3</td>
       <td>7</td>
       <td>0</td>
-      <td>2453.323424</td>
+      <td>2450.746997</td>
     </tr>
   </tbody>
 </table>
@@ -1269,9 +1272,9 @@ d2_m3_fit = d2_m3.sampling(data=d2_m3_data,
 
     WARNING:pystan:Maximum (flat) parameter count (1000) exceeded: skipping diagnostic tests for n_eff and Rhat.
     To run all diagnostics call pystan.check_hmc_diagnostics(fit)
-    WARNING:pystan:7 of 8000 iterations ended with a divergence (0.0875 %).
+    WARNING:pystan:156 of 8000 iterations ended with a divergence (1.95 %).
     WARNING:pystan:Try running with adapt_delta larger than 0.99 to remove the divergences.
-    WARNING:pystan:13 of 8000 iterations saturated the maximum tree depth of 10 (0.163 %)
+    WARNING:pystan:6 of 8000 iterations saturated the maximum tree depth of 10 (0.075 %)
     WARNING:pystan:Run again with max_treedepth larger than 10 to avoid saturation
 
 
@@ -1281,9 +1284,9 @@ pystan.check_hmc_diagnostics(d2_m3_fit)
 ```
 
     WARNING:pystan:Rhat above 1.1 or below 0.9 indicates that the chains very likely have not mixed
-    WARNING:pystan:7 of 8000 iterations ended with a divergence (0.0875 %).
+    WARNING:pystan:156 of 8000 iterations ended with a divergence (1.95 %).
     WARNING:pystan:Try running with adapt_delta larger than 0.99 to remove the divergences.
-    WARNING:pystan:13 of 8000 iterations saturated the maximum tree depth of 10 (0.163 %)
+    WARNING:pystan:6 of 8000 iterations saturated the maximum tree depth of 10 (0.075 %)
     WARNING:pystan:Run again with max_treedepth larger than 10 to avoid saturation
 
 
@@ -1344,73 +1347,73 @@ az.summary(az_d2_m3).head()
   <tbody>
     <tr>
       <th>mu_alpha</th>
-      <td>-0.504</td>
-      <td>0.990</td>
-      <td>-2.236</td>
-      <td>1.296</td>
-      <td>0.200</td>
-      <td>0.143</td>
-      <td>24.0</td>
-      <td>24.0</td>
-      <td>24.0</td>
-      <td>50.0</td>
-      <td>1.12</td>
+      <td>-0.773</td>
+      <td>1.167</td>
+      <td>-2.439</td>
+      <td>1.427</td>
+      <td>0.270</td>
+      <td>0.194</td>
+      <td>19.0</td>
+      <td>19.0</td>
+      <td>21.0</td>
+      <td>33.0</td>
+      <td>1.14</td>
     </tr>
     <tr>
       <th>sigma_alpha</th>
-      <td>1.233</td>
-      <td>0.089</td>
-      <td>1.075</td>
-      <td>1.408</td>
-      <td>0.003</td>
-      <td>0.002</td>
-      <td>1126.0</td>
-      <td>1126.0</td>
-      <td>1116.0</td>
-      <td>2271.0</td>
-      <td>1.00</td>
-    </tr>
-    <tr>
-      <th>mu_g</th>
-      <td>-0.788</td>
-      <td>0.989</td>
-      <td>-2.590</td>
-      <td>0.961</td>
-      <td>0.201</td>
-      <td>0.144</td>
-      <td>24.0</td>
-      <td>24.0</td>
-      <td>24.0</td>
-      <td>56.0</td>
-      <td>1.12</td>
-    </tr>
-    <tr>
-      <th>sigma_g</th>
-      <td>0.413</td>
-      <td>0.213</td>
-      <td>0.019</td>
-      <td>0.764</td>
-      <td>0.013</td>
-      <td>0.009</td>
+      <td>1.242</td>
+      <td>0.094</td>
+      <td>1.087</td>
+      <td>1.430</td>
+      <td>0.005</td>
+      <td>0.004</td>
+      <td>356.0</td>
+      <td>342.0</td>
+      <td>406.0</td>
       <td>281.0</td>
-      <td>281.0</td>
-      <td>235.0</td>
-      <td>266.0</td>
       <td>1.01</td>
     </tr>
     <tr>
+      <th>mu_g</th>
+      <td>-0.514</td>
+      <td>1.164</td>
+      <td>-2.764</td>
+      <td>1.165</td>
+      <td>0.268</td>
+      <td>0.193</td>
+      <td>19.0</td>
+      <td>19.0</td>
+      <td>21.0</td>
+      <td>36.0</td>
+      <td>1.14</td>
+    </tr>
+    <tr>
+      <th>sigma_g</th>
+      <td>0.404</td>
+      <td>0.219</td>
+      <td>0.023</td>
+      <td>0.757</td>
+      <td>0.017</td>
+      <td>0.012</td>
+      <td>166.0</td>
+      <td>166.0</td>
+      <td>123.0</td>
+      <td>71.0</td>
+      <td>1.03</td>
+    </tr>
+    <tr>
       <th>alpha[0]</th>
-      <td>1.734</td>
-      <td>1.074</td>
-      <td>-0.294</td>
-      <td>3.572</td>
-      <td>0.209</td>
-      <td>0.150</td>
-      <td>26.0</td>
-      <td>26.0</td>
-      <td>25.0</td>
-      <td>70.0</td>
-      <td>1.12</td>
+      <td>1.455</td>
+      <td>1.224</td>
+      <td>-0.608</td>
+      <td>3.800</td>
+      <td>0.277</td>
+      <td>0.199</td>
+      <td>19.0</td>
+      <td>19.0</td>
+      <td>21.0</td>
+      <td>37.0</td>
+      <td>1.14</td>
     </tr>
   </tbody>
 </table>
@@ -1425,7 +1428,7 @@ plt.show()
 ```
 
 
-![png](005_demeter2-in-stan_files/005_demeter2-in-stan_63_0.png)
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_64_0.png)
 
 
 
@@ -1435,7 +1438,7 @@ plt.show()
 ```
 
 
-![png](005_demeter2-in-stan_files/005_demeter2-in-stan_64_0.png)
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_65_0.png)
 
 
 
@@ -1510,152 +1513,152 @@ fit3_alpha_summary.head(10)
   <tbody>
     <tr>
       <th>1</th>
-      <td>1.734</td>
-      <td>1.074</td>
-      <td>-0.294</td>
-      <td>3.572</td>
-      <td>0.209</td>
-      <td>0.150</td>
-      <td>26.0</td>
-      <td>26.0</td>
-      <td>25.0</td>
-      <td>70.0</td>
-      <td>1.12</td>
+      <td>1.455</td>
+      <td>1.224</td>
+      <td>-0.608</td>
+      <td>3.800</td>
+      <td>0.277</td>
+      <td>0.199</td>
+      <td>19.0</td>
+      <td>19.0</td>
+      <td>21.0</td>
+      <td>37.0</td>
+      <td>1.14</td>
       <td>EIF6</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.355</td>
-      <td>1.069</td>
-      <td>-1.542</td>
-      <td>2.368</td>
-      <td>0.201</td>
-      <td>0.144</td>
-      <td>28.0</td>
-      <td>28.0</td>
-      <td>28.0</td>
-      <td>76.0</td>
-      <td>1.11</td>
+      <td>0.073</td>
+      <td>1.229</td>
+      <td>-1.856</td>
+      <td>2.445</td>
+      <td>0.271</td>
+      <td>0.195</td>
+      <td>21.0</td>
+      <td>21.0</td>
+      <td>23.0</td>
+      <td>33.0</td>
+      <td>1.13</td>
       <td>GRK5</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.232</td>
-      <td>1.076</td>
-      <td>-1.697</td>
-      <td>2.199</td>
-      <td>0.210</td>
-      <td>0.150</td>
-      <td>26.0</td>
-      <td>26.0</td>
-      <td>25.0</td>
-      <td>69.0</td>
-      <td>1.12</td>
+      <td>-0.060</td>
+      <td>1.207</td>
+      <td>-2.076</td>
+      <td>2.311</td>
+      <td>0.268</td>
+      <td>0.192</td>
+      <td>20.0</td>
+      <td>20.0</td>
+      <td>21.0</td>
+      <td>38.0</td>
+      <td>1.13</td>
       <td>EIF6</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.769</td>
-      <td>1.047</td>
-      <td>-1.182</td>
-      <td>2.648</td>
-      <td>0.197</td>
-      <td>0.141</td>
-      <td>28.0</td>
-      <td>28.0</td>
-      <td>29.0</td>
-      <td>64.0</td>
-      <td>1.10</td>
+      <td>0.496</td>
+      <td>1.229</td>
+      <td>-1.501</td>
+      <td>2.871</td>
+      <td>0.277</td>
+      <td>0.199</td>
+      <td>20.0</td>
+      <td>20.0</td>
+      <td>22.0</td>
+      <td>34.0</td>
+      <td>1.13</td>
       <td>EGFR</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>-1.070</td>
-      <td>1.055</td>
-      <td>-3.010</td>
-      <td>0.798</td>
-      <td>0.207</td>
-      <td>0.152</td>
-      <td>26.0</td>
-      <td>25.0</td>
-      <td>26.0</td>
-      <td>69.0</td>
-      <td>1.11</td>
+      <td>-1.351</td>
+      <td>1.202</td>
+      <td>-3.423</td>
+      <td>0.987</td>
+      <td>0.267</td>
+      <td>0.191</td>
+      <td>20.0</td>
+      <td>20.0</td>
+      <td>21.0</td>
+      <td>38.0</td>
+      <td>1.13</td>
       <td>COL8A1</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>-0.424</td>
-      <td>1.032</td>
-      <td>-2.309</td>
-      <td>1.438</td>
-      <td>0.207</td>
-      <td>0.148</td>
-      <td>25.0</td>
-      <td>25.0</td>
-      <td>24.0</td>
-      <td>66.0</td>
-      <td>1.12</td>
+      <td>-0.715</td>
+      <td>1.176</td>
+      <td>-2.763</td>
+      <td>1.527</td>
+      <td>0.263</td>
+      <td>0.189</td>
+      <td>20.0</td>
+      <td>20.0</td>
+      <td>20.0</td>
+      <td>36.0</td>
+      <td>1.14</td>
       <td>KRAS</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>-0.200</td>
-      <td>1.036</td>
-      <td>-2.087</td>
-      <td>1.686</td>
-      <td>0.203</td>
-      <td>0.145</td>
-      <td>26.0</td>
-      <td>26.0</td>
-      <td>27.0</td>
-      <td>61.0</td>
-      <td>1.11</td>
+      <td>-0.446</td>
+      <td>1.223</td>
+      <td>-2.388</td>
+      <td>1.881</td>
+      <td>0.276</td>
+      <td>0.198</td>
+      <td>20.0</td>
+      <td>20.0</td>
+      <td>22.0</td>
+      <td>34.0</td>
+      <td>1.14</td>
       <td>PTK2</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>1.516</td>
-      <td>1.036</td>
-      <td>-0.311</td>
-      <td>3.449</td>
-      <td>0.200</td>
-      <td>0.143</td>
-      <td>27.0</td>
-      <td>27.0</td>
-      <td>27.0</td>
-      <td>63.0</td>
-      <td>1.11</td>
+      <td>1.247</td>
+      <td>1.198</td>
+      <td>-0.769</td>
+      <td>3.530</td>
+      <td>0.267</td>
+      <td>0.191</td>
+      <td>20.0</td>
+      <td>20.0</td>
+      <td>22.0</td>
+      <td>36.0</td>
+      <td>1.13</td>
       <td>PTK2</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>0.696</td>
-      <td>1.037</td>
-      <td>-1.187</td>
-      <td>2.582</td>
-      <td>0.202</td>
-      <td>0.145</td>
-      <td>26.0</td>
-      <td>26.0</td>
-      <td>27.0</td>
-      <td>60.0</td>
-      <td>1.11</td>
+      <td>0.447</td>
+      <td>1.213</td>
+      <td>-1.502</td>
+      <td>2.785</td>
+      <td>0.274</td>
+      <td>0.196</td>
+      <td>20.0</td>
+      <td>20.0</td>
+      <td>22.0</td>
+      <td>36.0</td>
+      <td>1.13</td>
       <td>PTK2</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>-0.456</td>
-      <td>1.045</td>
-      <td>-2.403</td>
-      <td>1.397</td>
-      <td>0.202</td>
-      <td>0.145</td>
-      <td>27.0</td>
-      <td>27.0</td>
-      <td>27.0</td>
-      <td>56.0</td>
-      <td>1.11</td>
+      <td>-0.718</td>
+      <td>1.213</td>
+      <td>-2.667</td>
+      <td>1.644</td>
+      <td>0.271</td>
+      <td>0.195</td>
+      <td>20.0</td>
+      <td>20.0</td>
+      <td>22.0</td>
+      <td>34.0</td>
+      <td>1.13</td>
       <td>BRAF</td>
     </tr>
   </tbody>
@@ -1719,161 +1722,161 @@ fit3_gene_summary.head(10)
     <tr>
       <th>0</th>
       <td>1</td>
-      <td>-0.650</td>
-      <td>1.030</td>
-      <td>-2.568</td>
-      <td>1.168</td>
-      <td>0.203</td>
-      <td>0.145</td>
-      <td>26.0</td>
-      <td>26.0</td>
-      <td>26.0</td>
-      <td>54.0</td>
-      <td>1.11</td>
+      <td>-0.391</td>
+      <td>1.199</td>
+      <td>-2.725</td>
+      <td>1.468</td>
+      <td>0.272</td>
+      <td>0.196</td>
+      <td>19.0</td>
+      <td>19.0</td>
+      <td>22.0</td>
+      <td>35.0</td>
+      <td>1.13</td>
       <td>BRAF</td>
     </tr>
     <tr>
       <th>1</th>
       <td>2</td>
-      <td>-0.659</td>
-      <td>1.034</td>
-      <td>-2.633</td>
-      <td>1.149</td>
-      <td>0.196</td>
-      <td>0.140</td>
-      <td>28.0</td>
-      <td>28.0</td>
-      <td>28.0</td>
-      <td>84.0</td>
-      <td>1.11</td>
+      <td>-0.386</td>
+      <td>1.227</td>
+      <td>-2.671</td>
+      <td>1.768</td>
+      <td>0.276</td>
+      <td>0.198</td>
+      <td>20.0</td>
+      <td>20.0</td>
+      <td>22.0</td>
+      <td>34.0</td>
+      <td>1.14</td>
       <td>COG3</td>
     </tr>
     <tr>
       <th>2</th>
       <td>3</td>
-      <td>-1.189</td>
-      <td>1.044</td>
-      <td>-3.122</td>
-      <td>0.638</td>
-      <td>0.207</td>
-      <td>0.148</td>
-      <td>26.0</td>
-      <td>26.0</td>
-      <td>25.0</td>
-      <td>69.0</td>
-      <td>1.12</td>
+      <td>-0.906</td>
+      <td>1.190</td>
+      <td>-3.291</td>
+      <td>1.072</td>
+      <td>0.265</td>
+      <td>0.190</td>
+      <td>20.0</td>
+      <td>20.0</td>
+      <td>21.0</td>
+      <td>36.0</td>
+      <td>1.14</td>
       <td>COL8A1</td>
     </tr>
     <tr>
       <th>3</th>
       <td>4</td>
-      <td>-0.509</td>
-      <td>1.018</td>
-      <td>-2.390</td>
-      <td>1.272</td>
-      <td>0.198</td>
-      <td>0.141</td>
-      <td>27.0</td>
-      <td>27.0</td>
-      <td>27.0</td>
-      <td>56.0</td>
-      <td>1.11</td>
+      <td>-0.241</td>
+      <td>1.204</td>
+      <td>-2.499</td>
+      <td>1.583</td>
+      <td>0.278</td>
+      <td>0.199</td>
+      <td>19.0</td>
+      <td>19.0</td>
+      <td>21.0</td>
+      <td>32.0</td>
+      <td>1.14</td>
       <td>EGFR</td>
     </tr>
     <tr>
       <th>4</th>
       <td>5</td>
-      <td>-1.023</td>
-      <td>1.057</td>
-      <td>-2.932</td>
-      <td>0.817</td>
-      <td>0.210</td>
-      <td>0.150</td>
-      <td>25.0</td>
-      <td>25.0</td>
-      <td>25.0</td>
-      <td>66.0</td>
-      <td>1.12</td>
+      <td>-0.733</td>
+      <td>1.196</td>
+      <td>-3.147</td>
+      <td>1.178</td>
+      <td>0.268</td>
+      <td>0.193</td>
+      <td>20.0</td>
+      <td>20.0</td>
+      <td>21.0</td>
+      <td>37.0</td>
+      <td>1.14</td>
       <td>EIF6</td>
     </tr>
     <tr>
       <th>5</th>
       <td>6</td>
-      <td>-1.072</td>
-      <td>1.052</td>
-      <td>-2.929</td>
-      <td>0.855</td>
-      <td>0.210</td>
-      <td>0.150</td>
-      <td>25.0</td>
-      <td>25.0</td>
-      <td>25.0</td>
-      <td>71.0</td>
-      <td>1.12</td>
+      <td>-0.792</td>
+      <td>1.197</td>
+      <td>-3.210</td>
+      <td>1.147</td>
+      <td>0.260</td>
+      <td>0.187</td>
+      <td>21.0</td>
+      <td>21.0</td>
+      <td>22.0</td>
+      <td>40.0</td>
+      <td>1.13</td>
       <td>ESPL1</td>
     </tr>
     <tr>
       <th>6</th>
       <td>7</td>
-      <td>-0.610</td>
-      <td>1.053</td>
-      <td>-2.527</td>
-      <td>1.289</td>
-      <td>0.201</td>
-      <td>0.144</td>
-      <td>27.0</td>
-      <td>27.0</td>
-      <td>27.0</td>
-      <td>74.0</td>
-      <td>1.11</td>
+      <td>-0.333</td>
+      <td>1.221</td>
+      <td>-2.678</td>
+      <td>1.531</td>
+      <td>0.273</td>
+      <td>0.196</td>
+      <td>20.0</td>
+      <td>20.0</td>
+      <td>23.0</td>
+      <td>35.0</td>
+      <td>1.13</td>
       <td>GRK5</td>
     </tr>
     <tr>
       <th>7</th>
       <td>8</td>
-      <td>-1.084</td>
-      <td>1.016</td>
-      <td>-2.948</td>
-      <td>0.731</td>
-      <td>0.206</td>
-      <td>0.148</td>
-      <td>24.0</td>
-      <td>24.0</td>
-      <td>24.0</td>
-      <td>64.0</td>
-      <td>1.12</td>
+      <td>-0.798</td>
+      <td>1.166</td>
+      <td>-3.100</td>
+      <td>1.077</td>
+      <td>0.266</td>
+      <td>0.191</td>
+      <td>19.0</td>
+      <td>19.0</td>
+      <td>20.0</td>
+      <td>34.0</td>
+      <td>1.15</td>
       <td>KRAS</td>
     </tr>
     <tr>
       <th>8</th>
       <td>9</td>
-      <td>-0.479</td>
-      <td>1.003</td>
-      <td>-2.312</td>
-      <td>1.270</td>
-      <td>0.201</td>
-      <td>0.144</td>
-      <td>25.0</td>
-      <td>25.0</td>
-      <td>25.0</td>
-      <td>55.0</td>
-      <td>1.12</td>
+      <td>-0.222</td>
+      <td>1.187</td>
+      <td>-2.405</td>
+      <td>1.640</td>
+      <td>0.272</td>
+      <td>0.195</td>
+      <td>19.0</td>
+      <td>19.0</td>
+      <td>22.0</td>
+      <td>35.0</td>
+      <td>1.13</td>
       <td>PTK2</td>
     </tr>
     <tr>
       <th>9</th>
       <td>10</td>
-      <td>-0.843</td>
-      <td>1.042</td>
-      <td>-2.673</td>
-      <td>1.042</td>
-      <td>0.206</td>
-      <td>0.147</td>
-      <td>26.0</td>
-      <td>26.0</td>
-      <td>26.0</td>
-      <td>77.0</td>
-      <td>1.11</td>
+      <td>-0.560</td>
+      <td>1.220</td>
+      <td>-2.939</td>
+      <td>1.463</td>
+      <td>0.257</td>
+      <td>0.184</td>
+      <td>23.0</td>
+      <td>23.0</td>
+      <td>24.0</td>
+      <td>40.0</td>
+      <td>1.12</td>
       <td>RC3H2</td>
     </tr>
   </tbody>
@@ -1905,7 +1908,7 @@ plt.show()
 ```
 
 
-![png](005_demeter2-in-stan_files/005_demeter2-in-stan_68_0.png)
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_69_0.png)
 
 
 ## Model 4. Parameters for difference between average gene effect and cell line-specific effect
@@ -1967,7 +1970,7 @@ d2_m4_fit = d2_m4.sampling(data=d2_m4_data,
 
     WARNING:pystan:Maximum (flat) parameter count (1000) exceeded: skipping diagnostic tests for n_eff and Rhat.
     To run all diagnostics call pystan.check_hmc_diagnostics(fit)
-    WARNING:pystan:1 of 8000 iterations ended with a divergence (0.0125 %).
+    WARNING:pystan:64 of 8000 iterations ended with a divergence (0.8 %).
     WARNING:pystan:Try running with adapt_delta larger than 0.99 to remove the divergences.
 
 
@@ -1976,7 +1979,7 @@ d2_m4_fit = d2_m4.sampling(data=d2_m4_data,
 pystan.check_hmc_diagnostics(d2_m4_fit)
 ```
 
-    WARNING:pystan:1 of 8000 iterations ended with a divergence (0.0125 %).
+    WARNING:pystan:64 of 8000 iterations ended with a divergence (0.8 %).
     WARNING:pystan:Try running with adapt_delta larger than 0.99 to remove the divergences.
 
 
@@ -2037,72 +2040,72 @@ az.summary(az_d2_m4).head()
   <tbody>
     <tr>
       <th>sigma_c</th>
-      <td>1.236</td>
-      <td>0.091</td>
-      <td>1.065</td>
-      <td>1.405</td>
+      <td>1.237</td>
+      <td>0.092</td>
+      <td>1.068</td>
+      <td>1.410</td>
       <td>0.001</td>
       <td>0.001</td>
-      <td>5265.0</td>
-      <td>5184.0</td>
-      <td>5404.0</td>
-      <td>5908.0</td>
+      <td>5649.0</td>
+      <td>5594.0</td>
+      <td>5720.0</td>
+      <td>5594.0</td>
       <td>1.00</td>
     </tr>
     <tr>
       <th>mu_gbar</th>
-      <td>-1.280</td>
-      <td>0.191</td>
-      <td>-1.641</td>
-      <td>-0.934</td>
+      <td>-1.271</td>
+      <td>0.181</td>
+      <td>-1.627</td>
+      <td>-0.944</td>
       <td>0.005</td>
-      <td>0.004</td>
-      <td>1390.0</td>
-      <td>1390.0</td>
-      <td>1363.0</td>
-      <td>2883.0</td>
+      <td>0.003</td>
+      <td>1339.0</td>
+      <td>1339.0</td>
+      <td>1324.0</td>
+      <td>3014.0</td>
       <td>1.00</td>
     </tr>
     <tr>
       <th>sigma_gbar</th>
-      <td>0.422</td>
-      <td>0.220</td>
-      <td>0.029</td>
-      <td>0.803</td>
+      <td>0.397</td>
+      <td>0.215</td>
+      <td>0.010</td>
+      <td>0.746</td>
       <td>0.010</td>
       <td>0.007</td>
-      <td>531.0</td>
-      <td>531.0</td>
-      <td>451.0</td>
-      <td>491.0</td>
+      <td>470.0</td>
+      <td>470.0</td>
+      <td>355.0</td>
+      <td>157.0</td>
       <td>1.01</td>
     </tr>
     <tr>
       <th>sigma_g</th>
       <td>0.460</td>
-      <td>0.032</td>
+      <td>0.031</td>
       <td>0.402</td>
-      <td>0.522</td>
+      <td>0.519</td>
       <td>0.001</td>
-      <td>0.001</td>
-      <td>1826.0</td>
-      <td>1826.0</td>
-      <td>1825.0</td>
-      <td>3296.0</td>
+      <td>0.000</td>
+      <td>2010.0</td>
+      <td>2010.0</td>
+      <td>2007.0</td>
+      <td>3988.0</td>
       <td>1.00</td>
     </tr>
     <tr>
       <th>c[0]</th>
-      <td>2.257</td>
-      <td>0.404</td>
-      <td>1.530</td>
-      <td>3.038</td>
-      <td>0.011</td>
-      <td>0.008</td>
-      <td>1444.0</td>
-      <td>1416.0</td>
-      <td>1479.0</td>
-      <td>2593.0</td>
+      <td>2.236</td>
+      <td>0.390</td>
+      <td>1.531</td>
+      <td>2.993</td>
+      <td>0.010</td>
+      <td>0.007</td>
+      <td>1432.0</td>
+      <td>1353.0</td>
+      <td>1527.0</td>
+      <td>2343.0</td>
       <td>1.00</td>
     </tr>
   </tbody>
@@ -2118,7 +2121,7 @@ plt.show()
 ```
 
 
-![png](005_demeter2-in-stan_files/005_demeter2-in-stan_76_0.png)
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_77_0.png)
 
 
 
@@ -2163,72 +2166,72 @@ az.summary(az_d2_m4).tail()
   <tbody>
     <tr>
       <th>sigma[104]</th>
-      <td>1.042</td>
-      <td>0.140</td>
-      <td>0.781</td>
-      <td>1.306</td>
+      <td>1.038</td>
+      <td>0.141</td>
+      <td>0.764</td>
+      <td>1.294</td>
+      <td>0.002</td>
       <td>0.001</td>
-      <td>0.001</td>
-      <td>12795.0</td>
-      <td>12486.0</td>
-      <td>12671.0</td>
-      <td>6024.0</td>
+      <td>5822.0</td>
+      <td>5822.0</td>
+      <td>5130.0</td>
+      <td>914.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>sigma[105]</th>
       <td>0.982</td>
       <td>0.115</td>
-      <td>0.778</td>
-      <td>1.204</td>
+      <td>0.779</td>
+      <td>1.206</td>
       <td>0.001</td>
       <td>0.001</td>
-      <td>11776.0</td>
-      <td>11560.0</td>
-      <td>11754.0</td>
-      <td>6733.0</td>
+      <td>6993.0</td>
+      <td>6993.0</td>
+      <td>6701.0</td>
+      <td>894.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>sigma[106]</th>
       <td>1.208</td>
-      <td>0.128</td>
-      <td>0.965</td>
-      <td>1.448</td>
+      <td>0.131</td>
+      <td>0.964</td>
+      <td>1.455</td>
       <td>0.001</td>
       <td>0.001</td>
-      <td>14544.0</td>
-      <td>13909.0</td>
-      <td>14655.0</td>
-      <td>5675.0</td>
+      <td>10173.0</td>
+      <td>9510.0</td>
+      <td>10729.0</td>
+      <td>6237.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>sigma[107]</th>
-      <td>1.053</td>
+      <td>1.054</td>
       <td>0.136</td>
-      <td>0.810</td>
-      <td>1.315</td>
+      <td>0.798</td>
+      <td>1.303</td>
       <td>0.001</td>
       <td>0.001</td>
-      <td>14095.0</td>
-      <td>13702.0</td>
-      <td>13986.0</td>
-      <td>6088.0</td>
+      <td>14240.0</td>
+      <td>13164.0</td>
+      <td>14626.0</td>
+      <td>5427.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>sigma[108]</th>
-      <td>1.083</td>
+      <td>1.084</td>
       <td>0.135</td>
-      <td>0.834</td>
-      <td>1.340</td>
+      <td>0.843</td>
+      <td>1.343</td>
       <td>0.001</td>
       <td>0.001</td>
-      <td>13541.0</td>
-      <td>13228.0</td>
-      <td>13683.0</td>
-      <td>5643.0</td>
+      <td>14609.0</td>
+      <td>13624.0</td>
+      <td>15001.0</td>
+      <td>5716.0</td>
       <td>1.0</td>
     </tr>
   </tbody>
@@ -2244,7 +2247,7 @@ plt.show()
 ```
 
 
-![png](005_demeter2-in-stan_files/005_demeter2-in-stan_78_0.png)
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_79_0.png)
 
 
 
@@ -2254,7 +2257,7 @@ plt.show()
 ```
 
 
-![png](005_demeter2-in-stan_files/005_demeter2-in-stan_79_0.png)
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_80_0.png)
 
 
 
@@ -2304,7 +2307,7 @@ g_jl_post.head()
       <td>0</td>
       <td>0</td>
       <td>g[1,1]</td>
-      <td>0.320545</td>
+      <td>-0.430680</td>
     </tr>
     <tr>
       <th>1008001</th>
@@ -2312,7 +2315,7 @@ g_jl_post.head()
       <td>1</td>
       <td>0</td>
       <td>g[1,1]</td>
-      <td>-0.487421</td>
+      <td>0.238186</td>
     </tr>
     <tr>
       <th>1008002</th>
@@ -2320,7 +2323,7 @@ g_jl_post.head()
       <td>2</td>
       <td>0</td>
       <td>g[1,1]</td>
-      <td>0.703895</td>
+      <td>0.170318</td>
     </tr>
     <tr>
       <th>1008003</th>
@@ -2328,7 +2331,7 @@ g_jl_post.head()
       <td>3</td>
       <td>0</td>
       <td>g[1,1]</td>
-      <td>-0.022608</td>
+      <td>0.149008</td>
     </tr>
     <tr>
       <th>1008004</th>
@@ -2336,7 +2339,7 @@ g_jl_post.head()
       <td>4</td>
       <td>0</td>
       <td>g[1,1]</td>
-      <td>0.215098</td>
+      <td>0.331115</td>
     </tr>
   </tbody>
 </table>
@@ -2414,7 +2417,7 @@ p = sns.clustermap(g_jl_post, center=0, cmap="YlGnBu", linewidths=0.5,
 ```
 
 
-![png](005_demeter2-in-stan_files/005_demeter2-in-stan_85_0.png)
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_86_0.png)
 
 
 
@@ -2441,7 +2444,7 @@ plt.show()
 ```
 
 
-![png](005_demeter2-in-stan_files/005_demeter2-in-stan_87_0.png)
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_88_0.png)
 
 
 
@@ -2458,7 +2461,7 @@ plt.show()
 ```
 
 
-![png](005_demeter2-in-stan_files/005_demeter2-in-stan_88_0.png)
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_89_0.png)
 
 
 ## Model 5. Multiplicative scaling factor of each shRNA
@@ -2468,11 +2471,9 @@ The factor is multiplied against the gene effect.
 
 In this model, I experiment with this multiplicative factor $\alpha_s$.
 
-**Still need to adjust the model below.**
-
 $$
-D_{i|s} \sim N(\mu_{i|s}, \sigma_s) \\
-\mu = c_{i|s} + \alpha_s (\bar g_{i|l} + g_{i|jl}) \\
+D_{i|s} \sim N(\mu_{i|sjl}, \sigma_s) \\
+\mu_{sjl}= c_{s} + \alpha_{s} (\bar g_{l} + g_{jl}) \\
 c_s \sim N(0, \sigma_c) \\
 \alpha_s \sim \text{Uniform}(0, 1) \\
 \bar g_l \sim N(\mu_{\bar g}, \sigma_{\bar g}) \\
@@ -2500,8 +2501,6 @@ d2_m5_data = {
 }
 ```
 
-**Compile model.**
-
 
 ```python
 d2_m5_file = models_dir / 'd2_m5.cpp'
@@ -2522,10 +2521,10 @@ d2_m5_fit = d2_m5.sampling(data=d2_m5_data,
 
     WARNING:pystan:Maximum (flat) parameter count (1000) exceeded: skipping diagnostic tests for n_eff and Rhat.
     To run all diagnostics call pystan.check_hmc_diagnostics(fit)
-    WARNING:pystan:10 of 8000 iterations ended with a divergence (0.125 %).
-    WARNING:pystan:Try running with adapt_delta larger than 0.99 to remove the divergences.
-    WARNING:pystan:3 of 8000 iterations saturated the maximum tree depth of 10 (0.0375 %)
-    WARNING:pystan:Run again with max_treedepth larger than 10 to avoid saturation
+    WARNING:pystan:5 of 8000 iterations ended with a divergence (0.0625 %).
+    WARNING:pystan:Try running with adapt_delta larger than 0.999 to remove the divergences.
+    WARNING:pystan:5 of 8000 iterations saturated the maximum tree depth of 11 (0.0625 %)
+    WARNING:pystan:Run again with max_treedepth larger than 11 to avoid saturation
 
 
 
@@ -2533,9 +2532,9 @@ d2_m5_fit = d2_m5.sampling(data=d2_m5_data,
 pystan.check_hmc_diagnostics(d2_m5_fit)
 ```
 
-    WARNING:pystan:10 of 8000 iterations ended with a divergence (0.125 %).
+    WARNING:pystan:2 of 8000 iterations ended with a divergence (0.025 %).
     WARNING:pystan:Try running with adapt_delta larger than 0.99 to remove the divergences.
-    WARNING:pystan:3 of 8000 iterations saturated the maximum tree depth of 10 (0.0375 %)
+    WARNING:pystan:2 of 8000 iterations saturated the maximum tree depth of 10 (0.025 %)
     WARNING:pystan:Run again with max_treedepth larger than 10 to avoid saturation
 
 
@@ -2735,9 +2734,9 @@ d2_m5_pred
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.733779</td>
-      <td>-0.768984</td>
-      <td>2.278009</td>
+      <td>0.742871</td>
+      <td>-0.748287</td>
+      <td>2.329097</td>
       <td>0.625725</td>
       <td>1</td>
       <td>5</td>
@@ -2748,9 +2747,9 @@ d2_m5_pred
     </tr>
     <tr>
       <th>1</th>
-      <td>0.823323</td>
-      <td>-0.654592</td>
-      <td>2.390971</td>
+      <td>0.779841</td>
+      <td>-0.867941</td>
+      <td>2.339018</td>
       <td>2.145082</td>
       <td>1</td>
       <td>5</td>
@@ -2761,9 +2760,9 @@ d2_m5_pred
     </tr>
     <tr>
       <th>2</th>
-      <td>0.942019</td>
-      <td>-0.612576</td>
-      <td>2.521992</td>
+      <td>0.936184</td>
+      <td>-0.649361</td>
+      <td>2.477397</td>
       <td>0.932751</td>
       <td>1</td>
       <td>5</td>
@@ -2774,9 +2773,9 @@ d2_m5_pred
     </tr>
     <tr>
       <th>3</th>
-      <td>0.856841</td>
-      <td>-0.703396</td>
-      <td>2.423026</td>
+      <td>0.876974</td>
+      <td>-0.743851</td>
+      <td>2.407862</td>
       <td>1.372030</td>
       <td>1</td>
       <td>5</td>
@@ -2787,9 +2786,9 @@ d2_m5_pred
     </tr>
     <tr>
       <th>4</th>
-      <td>0.838587</td>
-      <td>-0.715314</td>
-      <td>2.379248</td>
+      <td>0.827171</td>
+      <td>-0.709087</td>
+      <td>2.426900</td>
       <td>0.803835</td>
       <td>1</td>
       <td>5</td>
@@ -2813,9 +2812,9 @@ d2_m5_pred
     </tr>
     <tr>
       <th>3329</th>
-      <td>-1.837794</td>
-      <td>-3.683594</td>
-      <td>0.109252</td>
+      <td>-1.836322</td>
+      <td>-3.815350</td>
+      <td>-0.067366</td>
       <td>-3.118520</td>
       <td>109</td>
       <td>13</td>
@@ -2826,9 +2825,9 @@ d2_m5_pred
     </tr>
     <tr>
       <th>3330</th>
-      <td>-1.113425</td>
-      <td>-2.954369</td>
-      <td>0.605212</td>
+      <td>-1.130218</td>
+      <td>-2.953949</td>
+      <td>0.672288</td>
       <td>-1.858803</td>
       <td>109</td>
       <td>13</td>
@@ -2839,9 +2838,9 @@ d2_m5_pred
     </tr>
     <tr>
       <th>3331</th>
-      <td>-1.425125</td>
-      <td>-3.229695</td>
-      <td>0.413542</td>
+      <td>-1.417122</td>
+      <td>-3.211824</td>
+      <td>0.425783</td>
       <td>-2.398997</td>
       <td>109</td>
       <td>13</td>
@@ -2852,9 +2851,9 @@ d2_m5_pred
     </tr>
     <tr>
       <th>3332</th>
-      <td>-0.936589</td>
-      <td>-2.740719</td>
-      <td>0.889739</td>
+      <td>-0.897946</td>
+      <td>-2.644816</td>
+      <td>0.899824</td>
       <td>0.948492</td>
       <td>109</td>
       <td>13</td>
@@ -2865,9 +2864,9 @@ d2_m5_pred
     </tr>
     <tr>
       <th>3333</th>
-      <td>-1.343153</td>
-      <td>-3.158997</td>
-      <td>0.433367</td>
+      <td>-1.335326</td>
+      <td>-3.045359</td>
+      <td>0.599845</td>
       <td>-2.847713</td>
       <td>109</td>
       <td>13</td>
@@ -2964,35 +2963,35 @@ g_pred.head()
     <tr>
       <th>0</th>
       <td>g[1,1]</td>
-      <td>0.439824</td>
+      <td>-0.072524</td>
       <td>1</td>
       <td>1</td>
     </tr>
     <tr>
       <th>1</th>
       <td>g[1,1]</td>
-      <td>-0.284250</td>
+      <td>0.342332</td>
       <td>1</td>
       <td>1</td>
     </tr>
     <tr>
       <th>2</th>
       <td>g[1,1]</td>
-      <td>0.572784</td>
+      <td>0.187223</td>
       <td>1</td>
       <td>1</td>
     </tr>
     <tr>
       <th>3</th>
       <td>g[1,1]</td>
-      <td>-0.132600</td>
+      <td>0.253825</td>
       <td>1</td>
       <td>1</td>
     </tr>
     <tr>
       <th>4</th>
       <td>g[1,1]</td>
-      <td>0.675018</td>
+      <td>0.318944</td>
       <td>1</td>
       <td>1</td>
     </tr>
@@ -3123,7 +3122,7 @@ g_pred.head()
       <td>1</td>
       <td>1</td>
       <td>g[1,1]</td>
-      <td>0.439824</td>
+      <td>-0.072524</td>
       <td>2313287_stomach</td>
       <td>BRAF</td>
     </tr>
@@ -3132,7 +3131,7 @@ g_pred.head()
       <td>1</td>
       <td>1</td>
       <td>g[1,1]</td>
-      <td>-0.284250</td>
+      <td>0.342332</td>
       <td>2313287_stomach</td>
       <td>BRAF</td>
     </tr>
@@ -3141,7 +3140,7 @@ g_pred.head()
       <td>1</td>
       <td>1</td>
       <td>g[1,1]</td>
-      <td>0.572784</td>
+      <td>0.187223</td>
       <td>2313287_stomach</td>
       <td>BRAF</td>
     </tr>
@@ -3150,7 +3149,7 @@ g_pred.head()
       <td>1</td>
       <td>1</td>
       <td>g[1,1]</td>
-      <td>-0.132600</td>
+      <td>0.253825</td>
       <td>2313287_stomach</td>
       <td>BRAF</td>
     </tr>
@@ -3159,7 +3158,7 @@ g_pred.head()
       <td>1</td>
       <td>1</td>
       <td>g[1,1]</td>
-      <td>0.675018</td>
+      <td>0.318944</td>
       <td>2313287_stomach</td>
       <td>BRAF</td>
     </tr>
@@ -3516,33 +3515,33 @@ cl_df.head()
   <tbody>
     <tr>
       <th>0</th>
-      <td>2.256885</td>
-      <td>1.401568</td>
-      <td>0.228217</td>
+      <td>2.235566</td>
+      <td>1.388940</td>
+      <td>0.226152</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.847578</td>
-      <td>0.359238</td>
-      <td>0.309626</td>
+      <td>0.848993</td>
+      <td>0.355141</td>
+      <td>0.306266</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.731892</td>
-      <td>0.613493</td>
-      <td>0.479000</td>
+      <td>0.703887</td>
+      <td>0.636358</td>
+      <td>0.487371</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1.242973</td>
-      <td>0.652422</td>
-      <td>0.177926</td>
+      <td>1.265645</td>
+      <td>0.658361</td>
+      <td>0.178976</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>-0.547694</td>
-      <td>0.102312</td>
-      <td>0.772987</td>
+      <td>-0.575790</td>
+      <td>0.103500</td>
+      <td>0.775101</td>
     </tr>
   </tbody>
 </table>
@@ -3552,8 +3551,11 @@ cl_df.head()
 
 
 ```python
+x_vals = np.linspace(np.min(cl_df.m4_c), np.max(cl_df.m4_c))
+
 sns.scatterplot(x='m4_c', y='m5_c', size='m5_alpha', hue='m5_alpha', 
                 data=cl_df, sizes=(50, 150), alpha=0.8, legend='brief')
+plt.plot(x_vals, x_vals, 'k--', alpha=0.5)
 plt.xlabel('model 4 cell line intercept')
 plt.ylabel('model 5 cell line intercept')
 plt.title('Cell line varying intercepts between models 4 and 5')
@@ -3629,12 +3631,12 @@ model_predictions.head()
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.810189</td>
-      <td>-0.775439</td>
-      <td>2.326655</td>
-      <td>0.733779</td>
-      <td>-0.768984</td>
-      <td>2.278009</td>
+      <td>0.798723</td>
+      <td>-0.811882</td>
+      <td>2.299739</td>
+      <td>0.742871</td>
+      <td>-0.748287</td>
+      <td>2.329097</td>
       <td>0.625725</td>
       <td>efo21_ovary</td>
       <td>EIF6</td>
@@ -3642,12 +3644,12 @@ model_predictions.head()
     </tr>
     <tr>
       <th>1</th>
-      <td>0.969803</td>
-      <td>-0.533012</td>
-      <td>2.542772</td>
-      <td>0.823323</td>
-      <td>-0.654592</td>
-      <td>2.390971</td>
+      <td>1.015390</td>
+      <td>-0.580458</td>
+      <td>2.510070</td>
+      <td>0.779841</td>
+      <td>-0.867941</td>
+      <td>2.339018</td>
       <td>2.145082</td>
       <td>dbtrg05mg_central_nervous_system</td>
       <td>EIF6</td>
@@ -3655,12 +3657,12 @@ model_predictions.head()
     </tr>
     <tr>
       <th>2</th>
-      <td>1.075705</td>
-      <td>-0.579965</td>
-      <td>2.594612</td>
-      <td>0.942019</td>
-      <td>-0.612576</td>
-      <td>2.521992</td>
+      <td>1.047552</td>
+      <td>-0.572622</td>
+      <td>2.584981</td>
+      <td>0.936184</td>
+      <td>-0.649361</td>
+      <td>2.477397</td>
       <td>0.932751</td>
       <td>bt20_breast</td>
       <td>EIF6</td>
@@ -3668,12 +3670,12 @@ model_predictions.head()
     </tr>
     <tr>
       <th>3</th>
-      <td>1.128708</td>
-      <td>-0.486943</td>
-      <td>2.670705</td>
-      <td>0.856841</td>
-      <td>-0.703396</td>
-      <td>2.423026</td>
+      <td>1.143413</td>
+      <td>-0.416845</td>
+      <td>2.732953</td>
+      <td>0.876974</td>
+      <td>-0.743851</td>
+      <td>2.407862</td>
       <td>1.372030</td>
       <td>sw1783_central_nervous_system</td>
       <td>EIF6</td>
@@ -3681,12 +3683,12 @@ model_predictions.head()
     </tr>
     <tr>
       <th>4</th>
-      <td>1.006432</td>
-      <td>-0.600970</td>
-      <td>2.525803</td>
-      <td>0.838587</td>
-      <td>-0.715314</td>
-      <td>2.379248</td>
+      <td>0.994660</td>
+      <td>-0.538631</td>
+      <td>2.604680</td>
+      <td>0.827171</td>
+      <td>-0.709087</td>
+      <td>2.426900</td>
       <td>0.803835</td>
       <td>kns60_central_nervous_system</td>
       <td>EIF6</td>
@@ -3714,6 +3716,8 @@ model_predictions = model_predictions \
 ```python
 plt.figure(figsize=(15, 5))
 sns.scatterplot(x='index', y='obs', hue='gene_symbol', data=model_predictions)
+plt.xlabel('shRNA index')
+plt.ylabel('observed LFC')
 plt.xlim(-10, len(model_predictions)+10)
 plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.show()
@@ -3771,6 +3775,831 @@ plt.show()
 
 
 ![png](005_demeter2-in-stan_files/005_demeter2-in-stan_129_0.png)
+
+
+
+```python
+
+```
+
+## Model 6. Multiplicative scaling factor and varying intercept for each cell line
+
+There are two new parameters in this model: $a_j$, a varying intercept per cell line, and $\gamma_j$, a multiplicative scaling factor for each cell line.
+
+$$
+D_{i|sjl} \sim N(\mu_{i|sjl}, \sigma_s) \\
+\mu_{sjl} = a_j + \gamma_j(c_{s} + \alpha_s (\bar g_{l} + g_{jl})) \\
+a_j \sim N(0, \sigma_a) \\
+\gamma_j \sim N(1, 2) \\
+c_s \sim N(0, \sigma_c) \\
+\alpha_s \sim \text{Uniform}(0, 1) \\
+\bar g_l \sim N(\mu_{\bar g}, \sigma_{\bar g}) \\
+g_{jl} \sim N(0, \sigma_g) \\
+\sigma_a \sim \text{HalfNormal}(2, 3) \\
+\sigma_c \sim \text{HalfNormal}(0, 3) \\
+\mu_{\bar g} \sim N(0, 2) \quad \sigma_{\bar g} \sim \text{HalfNormal}(0, 10) \\
+\sigma_g \sim \text{HalfNormal}(0, 5) \\
+\sigma_s \sim \text{HalfNormal}(\mu_\sigma, \sigma_\sigma) \\
+\mu_\sigma \sim \text{HalfNormal}(0, 2) \quad \sigma_\sigma \sim \text{HalfNormal}(0, 1) \\
+$$
+
+
+```python
+d2_m6_data = {
+    'N': int(modeling_data.shape[0]),
+    'S': np.max(modeling_data.barcode_sequence_idx),
+    'L': np.max(modeling_data.gene_symbol_idx),
+    'J': np.max(modeling_data.cell_line_idx),
+    
+    'shrna': modeling_data.barcode_sequence_idx,
+    'gene': modeling_data.gene_symbol_idx,
+    'cell_line': modeling_data.cell_line_idx,
+    
+    'y': modeling_data.lfc,
+}
+```
+
+
+```python
+d2_m6_file = models_dir / 'd2_m6.cpp'
+d2_m6 = StanModel_cache(file=d2_m6_file.as_posix())
+```
+
+    INFO:pystan:COMPILING THE C++ CODE FOR MODEL anon_model_66c65136081b1616d9b674dc89996d94 NOW.
+
+
+    No cached model - compiling '../models/d2_m6.cpp'.
+    0.78 minutes to compile model
+
+
+
+```python
+d2_m6_control = {'adapt_delta': 0.99, 
+                 'max_treedepth': 10}
+d2_m6_fit = d2_m6.sampling(data=d2_m6_data, 
+                           iter=3000, warmup=1000, chains=4, 
+                           control=d2_m6_control)
+```
+
+    WARNING:pystan:Maximum (flat) parameter count (1000) exceeded: skipping diagnostic tests for n_eff and Rhat.
+    To run all diagnostics call pystan.check_hmc_diagnostics(fit)
+    WARNING:pystan:16 of 8000 iterations ended with a divergence (0.2 %).
+    WARNING:pystan:Try running with adapt_delta larger than 0.99 to remove the divergences.
+    WARNING:pystan:22 of 8000 iterations saturated the maximum tree depth of 10 (0.275 %)
+    WARNING:pystan:Run again with max_treedepth larger than 10 to avoid saturation
+    WARNING:pystan:Chain 1: E-BFMI = 0.145
+    WARNING:pystan:Chain 2: E-BFMI = 0.0844
+    WARNING:pystan:Chain 3: E-BFMI = 0.154
+    WARNING:pystan:Chain 4: E-BFMI = 0.173
+    WARNING:pystan:E-BFMI below 0.2 indicates you may need to reparameterize your model
+
+
+
+```python
+pystan.check_hmc_diagnostics(d2_m6_fit)
+```
+
+    WARNING:pystan:n_eff / iter below 0.001 indicates that the effective sample size has likely been overestimated
+    WARNING:pystan:Rhat above 1.1 or below 0.9 indicates that the chains very likely have not mixed
+    WARNING:pystan:16 of 8000 iterations ended with a divergence (0.2 %).
+    WARNING:pystan:Try running with adapt_delta larger than 0.99 to remove the divergences.
+    WARNING:pystan:22 of 8000 iterations saturated the maximum tree depth of 10 (0.275 %)
+    WARNING:pystan:Run again with max_treedepth larger than 10 to avoid saturation
+    WARNING:pystan:Chain 1: E-BFMI = 0.145
+    WARNING:pystan:Chain 2: E-BFMI = 0.0844
+    WARNING:pystan:Chain 3: E-BFMI = 0.154
+    WARNING:pystan:Chain 4: E-BFMI = 0.173
+    WARNING:pystan:E-BFMI below 0.2 indicates you may need to reparameterize your model
+
+
+
+
+
+    {'n_eff': False,
+     'Rhat': False,
+     'divergence': False,
+     'treedepth': False,
+     'energy': False}
+
+
+
+
+```python
+d2_m6_post = d2_m6_fit.to_dataframe()
+```
+
+
+```python
+df = d2_m6_post.loc[:, d2_m6_post.columns.str.contains('alpha\[')]
+for col in df.columns:
+    sns.distplot(df[[col]], hist=False, kde_kws={'alpha': 0.5})
+```
+
+
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_137_0.png)
+
+
+
+```python
+df = d2_m6_post.loc[:, d2_m6_post.columns.str.contains('gamma\[')]
+for col in df.columns:
+    sns.distplot(df[[col]], hist=False, kde_kws={'alpha': 0.5})
+```
+
+
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_138_0.png)
+
+
+
+```python
+genes_post = d2_m6_post.loc[:, d2_m6_post.columns.str.contains('gbar\[')]
+
+genes = list(np.unique(modeling_data.gene_symbol))
+genes.sort()
+genes_post.columns = genes
+
+for col in genes_post.columns.to_list():
+    sns.distplot(genes_post[[col]], hist=False, label=col, kde_kws={'shade': False, 'alpha': 0.8})
+
+plt.legend()
+plt.xlabel('coefficient value')
+plt.ylabel('density')
+plt.title('Distribution of coefficients for average gene effect')
+plt.show()
+```
+
+
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_139_0.png)
+
+
+
+```python
+az_d2_m6 = az.from_pystan(posterior=d2_m6_fit,
+                          posterior_predictive='y_pred',
+                          observed_data=['y'],
+                          posterior_model=d2_m6)
+az.plot_ppc(az_d2_m6, data_pairs={'y':'y_pred'}, num_pp_samples=100)
+plt.show()
+```
+
+
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_140_0.png)
+
+
+## Model 7. Only a varying intercept for each cell line (no scaling factor)
+
+The previous model had difficult fiting.
+This model removes the per-cell-line scaling factor, leaving the parameter for varying effects per cell line.
+
+$$
+D_{i|sjl} \sim N(\mu_{i|sjl}, \sigma_s) \\
+\mu_{sjl} = a_j + c_{s} + \alpha_s (\bar g_{l} + g_{jl}) \\
+a_j \sim N(0, \sigma_a) \\
+c_s \sim N(0, \sigma_c) \\
+\alpha_s \sim \text{Uniform}(0, 1) \\
+\bar g_l \sim N(\mu_{\bar g}, \sigma_{\bar g}) \\
+g_{jl} \sim N(0, \sigma_g) \\
+\sigma_a \sim \text{HalfNormal}(0, 2) \\
+\sigma_c \sim \text{HalfNormal}(0, 3) \\
+\mu_{\bar g} \sim N(0, 2) \quad \sigma_{\bar g} \sim \text{HalfNormal}(0, 3) \\
+\sigma_g \sim \text{HalfNormal}(0, 3) \\
+\sigma_s \sim \text{HalfNormal}(\mu_\sigma, \sigma_\sigma) \\
+\mu_\sigma \sim \text{HalfNormal}(0, 2) \quad \sigma_\sigma \sim \text{HalfNormal}(0, 1) \\
+$$
+
+
+```python
+d2_m7_data = {
+    'N': int(modeling_data.shape[0]),
+    'S': np.max(modeling_data.barcode_sequence_idx),
+    'L': np.max(modeling_data.gene_symbol_idx),
+    'J': np.max(modeling_data.cell_line_idx),
+    
+    'shrna': modeling_data.barcode_sequence_idx,
+    'gene': modeling_data.gene_symbol_idx,
+    'cell_line': modeling_data.cell_line_idx,
+    
+    'y': modeling_data.lfc,
+}
+```
+
+
+```python
+d2_m7_file = models_dir / 'd2_m7.cpp'
+d2_m7 = StanModel_cache(file=d2_m7_file.as_posix())
+```
+
+    Using cached StanModel.
+
+
+
+```python
+d2_m7_control = {'adapt_delta': 0.99, 
+                 'max_treedepth': 10}
+d2_m7_fit = d2_m7.sampling(data=d2_m7_data, 
+                           iter=3000, warmup=1000, chains=4, 
+                           control=d2_m7_control,
+                           n_jobs=5)
+```
+
+    WARNING:pystan:Maximum (flat) parameter count (1000) exceeded: skipping diagnostic tests for n_eff and Rhat.
+    To run all diagnostics call pystan.check_hmc_diagnostics(fit)
+    WARNING:pystan:1 of 8000 iterations ended with a divergence (0.0125 %).
+    WARNING:pystan:Try running with adapt_delta larger than 0.99 to remove the divergences.
+    WARNING:pystan:1 of 8000 iterations saturated the maximum tree depth of 10 (0.0125 %)
+    WARNING:pystan:Run again with max_treedepth larger than 10 to avoid saturation
+
+
+
+```python
+pystan.check_hmc_diagnostics(d2_m7_fit)
+```
+
+    WARNING:pystan:1 of 8000 iterations ended with a divergence (0.0125 %).
+    WARNING:pystan:Try running with adapt_delta larger than 0.99 to remove the divergences.
+    WARNING:pystan:1 of 8000 iterations saturated the maximum tree depth of 10 (0.0125 %)
+    WARNING:pystan:Run again with max_treedepth larger than 10 to avoid saturation
+
+
+
+
+
+    {'n_eff': True,
+     'Rhat': True,
+     'divergence': False,
+     'treedepth': False,
+     'energy': True}
+
+
+
+
+```python
+d2_m7_post = d2_m7_fit.to_dataframe()
+```
+
+
+```python
+az_d2_m7 = az.from_pystan(posterior=d2_m7_fit,
+                          posterior_predictive='y_pred',
+                          observed_data=['y'],
+                          posterior_model=d2_m7)
+az.plot_ppc(az_d2_m7, data_pairs={'y':'y_pred'}, num_pp_samples=100)
+plt.show()
+```
+
+
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_147_0.png)
+
+
+
+```python
+d2_m7_a_post = pd.DataFrame(d2_m7_fit.extract('a')['a'])
+
+cell_line_map = modeling_data[['cell_line', 'cell_line_idx']] \
+    .drop_duplicates() \
+    .sort_values('cell_line_idx') \
+    .reset_index(drop=True)
+
+d2_m7_a_post.columns = cell_line_map.cell_line
+```
+
+
+```python
+for cell_line in d2_m7_a_post.columns.to_list():
+    sns.distplot(d2_m7_a_post[[cell_line]], hist=False, kde_kws={'alpha': 0.5})
+```
+
+
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_149_0.png)
+
+
+
+```python
+d2_m7_pred = pd.DataFrame(d2_m7_fit.extract('y_pred')['y_pred'])
+d2_m7_pred.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>...</th>
+      <th>3324</th>
+      <th>3325</th>
+      <th>3326</th>
+      <th>3327</th>
+      <th>3328</th>
+      <th>3329</th>
+      <th>3330</th>
+      <th>3331</th>
+      <th>3332</th>
+      <th>3333</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2.135660</td>
+      <td>0.414827</td>
+      <td>0.334429</td>
+      <td>1.169825</td>
+      <td>0.730670</td>
+      <td>2.100070</td>
+      <td>-0.097630</td>
+      <td>0.825503</td>
+      <td>0.811204</td>
+      <td>0.886321</td>
+      <td>...</td>
+      <td>-1.271522</td>
+      <td>-1.604833</td>
+      <td>-0.681266</td>
+      <td>-2.412664</td>
+      <td>-0.092858</td>
+      <td>-1.769742</td>
+      <td>-1.023952</td>
+      <td>-1.709334</td>
+      <td>-1.446946</td>
+      <td>-1.867585</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-0.258568</td>
+      <td>1.589077</td>
+      <td>0.975810</td>
+      <td>2.683896</td>
+      <td>1.944490</td>
+      <td>2.222514</td>
+      <td>-0.369773</td>
+      <td>0.907256</td>
+      <td>1.329136</td>
+      <td>1.167455</td>
+      <td>...</td>
+      <td>-3.554992</td>
+      <td>0.909750</td>
+      <td>-1.305267</td>
+      <td>-0.659696</td>
+      <td>-0.430644</td>
+      <td>-1.464651</td>
+      <td>-0.405352</td>
+      <td>-3.262250</td>
+      <td>-0.406125</td>
+      <td>-2.403691</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.991447</td>
+      <td>0.995235</td>
+      <td>0.319739</td>
+      <td>0.829170</td>
+      <td>0.861540</td>
+      <td>1.489871</td>
+      <td>-0.840679</td>
+      <td>1.842453</td>
+      <td>0.537677</td>
+      <td>1.225023</td>
+      <td>...</td>
+      <td>0.159416</td>
+      <td>-1.171176</td>
+      <td>-1.501274</td>
+      <td>-2.026308</td>
+      <td>-1.028868</td>
+      <td>-1.797697</td>
+      <td>-0.161722</td>
+      <td>-0.608210</td>
+      <td>-1.747198</td>
+      <td>-0.662055</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.359276</td>
+      <td>1.887486</td>
+      <td>2.536779</td>
+      <td>2.099641</td>
+      <td>0.495947</td>
+      <td>0.421383</td>
+      <td>0.522812</td>
+      <td>0.178429</td>
+      <td>0.001630</td>
+      <td>2.200154</td>
+      <td>...</td>
+      <td>-2.485514</td>
+      <td>0.115954</td>
+      <td>-0.794616</td>
+      <td>-1.327708</td>
+      <td>-0.756625</td>
+      <td>-1.725587</td>
+      <td>-4.247362</td>
+      <td>-1.169149</td>
+      <td>-0.628886</td>
+      <td>0.604209</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.403651</td>
+      <td>-0.367544</td>
+      <td>0.098439</td>
+      <td>0.566884</td>
+      <td>1.336703</td>
+      <td>0.360488</td>
+      <td>-1.058102</td>
+      <td>1.923034</td>
+      <td>0.040789</td>
+      <td>2.334603</td>
+      <td>...</td>
+      <td>-2.767285</td>
+      <td>-2.070522</td>
+      <td>-2.672827</td>
+      <td>-2.081729</td>
+      <td>-0.788420</td>
+      <td>-2.484335</td>
+      <td>-1.050932</td>
+      <td>-1.563766</td>
+      <td>-1.309522</td>
+      <td>-0.289561</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 3334 columns</p>
+</div>
+
+
+
+
+```python
+d2_m7_pred_mean = d2_m7_pred \
+    .melt(var_name='data_pt') \
+    .groupby('data_pt') \
+    .mean()
+
+d2_m7_pred_mean['hdi'] = d2_m7_pred.apply(axis=1, func=lambda x: az.hdi(np.array(x)))
+
+d2_m7_pred_mean = d2_m7_pred_mean \
+    .assign(hdi_dn=lambda x: [a[0] for a in x.hdi],
+            hdi_up=lambda x: [a[1] for a in x.hdi]) \
+    .reset_index()
+
+d2_m7_pred_mean['gene_symbol_idx'] = d2_m7_data['gene']
+d2_m7_pred_mean['barcode_sequence_idx'] = d2_m7_data['shrna']
+
+d2_m7_pred_mean = pd.merge(
+    d2_m7_pred_mean,
+    modeling_data[['gene_symbol', 'gene_symbol_idx']].drop_duplicates(), 
+    how='left',
+    on='gene_symbol_idx'
+)
+
+d2_m7_pred_mean = pd.merge(
+    d2_m7_pred_mean,
+    modeling_data[['barcode_sequence', 'barcode_sequence_idx']].drop_duplicates(), 
+    how='left',
+    on='barcode_sequence_idx'
+)
+
+d2_m7_pred_mean.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>data_pt</th>
+      <th>value</th>
+      <th>hdi</th>
+      <th>hdi_dn</th>
+      <th>hdi_up</th>
+      <th>gene_symbol_idx</th>
+      <th>barcode_sequence_idx</th>
+      <th>gene_symbol</th>
+      <th>barcode_sequence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1.327296</td>
+      <td>[-4.596127267026097, 1.7751894749567059]</td>
+      <td>-4.596127</td>
+      <td>1.775189</td>
+      <td>5</td>
+      <td>1</td>
+      <td>EIF6</td>
+      <td>ACAGAAGAAATTCTGGCAGAT</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>0.244436</td>
+      <td>[-4.5335408181883485, 1.9609086301908234]</td>
+      <td>-4.533541</td>
+      <td>1.960909</td>
+      <td>5</td>
+      <td>1</td>
+      <td>EIF6</td>
+      <td>ACAGAAGAAATTCTGGCAGAT</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>0.991050</td>
+      <td>[-4.41952942019391, 1.9664193474126457]</td>
+      <td>-4.419529</td>
+      <td>1.966419</td>
+      <td>5</td>
+      <td>1</td>
+      <td>EIF6</td>
+      <td>ACAGAAGAAATTCTGGCAGAT</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>0.960443</td>
+      <td>[-4.723445979399989, 1.7270904559989635]</td>
+      <td>-4.723446</td>
+      <td>1.727090</td>
+      <td>5</td>
+      <td>1</td>
+      <td>EIF6</td>
+      <td>ACAGAAGAAATTCTGGCAGAT</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>1.039913</td>
+      <td>[-4.578403632973594, 1.648208253996473]</td>
+      <td>-4.578404</td>
+      <td>1.648208</td>
+      <td>5</td>
+      <td>1</td>
+      <td>EIF6</td>
+      <td>ACAGAAGAAATTCTGGCAGAT</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+fig, axes = plt.subplots(5, 3, figsize=(12, 20))
+
+genes = np.unique(d2_m7_pred_mean.sort_values('gene_symbol').gene_symbol.to_list())
+
+for ax, gene in zip(axes.flatten(), genes):
+    
+    g_data = d2_m7_pred_mean[d2_m7_pred_mean.gene_symbol == gene] \
+        .reset_index(drop=True) \
+        .reset_index()
+    
+    for i in range(len(g_data)):
+        ax.plot((i, i), (g_data.hdi_dn[i], d2_m7_pred_mean.hdi_up[i]), 
+                c='#c9c9c9', alpha=0.5)
+    
+    sns.scatterplot(x='index', y='value', hue='barcode_sequence', data=g_data,
+                    legend=False, ax=ax)
+    
+    ax.set_title(gene, fontsize=12)
+
+axes[4, 2].axis('off')
+axes[4, 1].axis('off')
+fig.tight_layout(pad=1.0)
+plt.show()
+```
+
+
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_152_0.png)
+
+
+
+```python
+d2_m7_pred_mean
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>data_pt</th>
+      <th>value</th>
+      <th>hdi</th>
+      <th>hdi_dn</th>
+      <th>hdi_up</th>
+      <th>gene_symbol_idx</th>
+      <th>barcode_sequence_idx</th>
+      <th>gene_symbol</th>
+      <th>barcode_sequence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1.327296</td>
+      <td>[-4.596127267026097, 1.7751894749567059]</td>
+      <td>-4.596127</td>
+      <td>1.775189</td>
+      <td>5</td>
+      <td>1</td>
+      <td>EIF6</td>
+      <td>ACAGAAGAAATTCTGGCAGAT</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>0.244436</td>
+      <td>[-4.5335408181883485, 1.9609086301908234]</td>
+      <td>-4.533541</td>
+      <td>1.960909</td>
+      <td>5</td>
+      <td>1</td>
+      <td>EIF6</td>
+      <td>ACAGAAGAAATTCTGGCAGAT</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>0.991050</td>
+      <td>[-4.41952942019391, 1.9664193474126457]</td>
+      <td>-4.419529</td>
+      <td>1.966419</td>
+      <td>5</td>
+      <td>1</td>
+      <td>EIF6</td>
+      <td>ACAGAAGAAATTCTGGCAGAT</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>0.960443</td>
+      <td>[-4.723445979399989, 1.7270904559989635]</td>
+      <td>-4.723446</td>
+      <td>1.727090</td>
+      <td>5</td>
+      <td>1</td>
+      <td>EIF6</td>
+      <td>ACAGAAGAAATTCTGGCAGAT</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>1.039913</td>
+      <td>[-4.578403632973594, 1.648208253996473]</td>
+      <td>-4.578404</td>
+      <td>1.648208</td>
+      <td>5</td>
+      <td>1</td>
+      <td>EIF6</td>
+      <td>ACAGAAGAAATTCTGGCAGAT</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3329</th>
+      <td>3329</td>
+      <td>-1.649936</td>
+      <td>[-4.585495669287962, 1.7745792535842833]</td>
+      <td>-4.585496</td>
+      <td>1.774579</td>
+      <td>13</td>
+      <td>109</td>
+      <td>TRIM39</td>
+      <td>TGCTCTCATGGGTCTAGATAT</td>
+    </tr>
+    <tr>
+      <th>3330</th>
+      <td>3330</td>
+      <td>-1.139632</td>
+      <td>[-4.292058452422176, 2.0046199948082952]</td>
+      <td>-4.292058</td>
+      <td>2.004620</td>
+      <td>13</td>
+      <td>109</td>
+      <td>TRIM39</td>
+      <td>TGCTCTCATGGGTCTAGATAT</td>
+    </tr>
+    <tr>
+      <th>3331</th>
+      <td>3331</td>
+      <td>-1.293152</td>
+      <td>[-4.616257206899434, 1.939295593995174]</td>
+      <td>-4.616257</td>
+      <td>1.939296</td>
+      <td>13</td>
+      <td>109</td>
+      <td>TRIM39</td>
+      <td>TGCTCTCATGGGTCTAGATAT</td>
+    </tr>
+    <tr>
+      <th>3332</th>
+      <td>3332</td>
+      <td>-1.042668</td>
+      <td>[-4.399500114545466, 1.695579964952048]</td>
+      <td>-4.399500</td>
+      <td>1.695580</td>
+      <td>13</td>
+      <td>109</td>
+      <td>TRIM39</td>
+      <td>TGCTCTCATGGGTCTAGATAT</td>
+    </tr>
+    <tr>
+      <th>3333</th>
+      <td>3333</td>
+      <td>-1.509146</td>
+      <td>[-4.35022691859504, 2.0816350404236923]</td>
+      <td>-4.350227</td>
+      <td>2.081635</td>
+      <td>13</td>
+      <td>109</td>
+      <td>TRIM39</td>
+      <td>TGCTCTCATGGGTCTAGATAT</td>
+    </tr>
+  </tbody>
+</table>
+<p>3334 rows × 9 columns</p>
+</div>
+
+
+
+
+```python
+plt.scatter(x=d2_m7_pred_mean.loc[:, 'value'], y=d2_m7_data['y'])
+plt.show()
+```
+
+
+![png](005_demeter2-in-stan_files/005_demeter2-in-stan_154_0.png)
 
 
 
